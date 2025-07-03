@@ -13,37 +13,12 @@ const About = () => {
     <div className="bg-white min-h-screen">
       <PageHeader 
         title="About ClinicFlow Pro" 
-        description="Transforming healthcare practice management with innovative solutions"
+        description="We're on a mission to simplify practice management so you can focus on what matters most—your patients."
         breadcrumbs={breadcrumbs}
+        className="bg-gradient-to-r from-blue-500/10 to-purple-500/10"
       />
       
       <div className="container max-w-7xl mx-auto px-4 py-16 sm:px-6 lg:px-8">
-        {/* Hero Section with Image */}
-        <div className="relative rounded-2xl overflow-hidden mb-20">
-          <div className="absolute inset-0">
-            <img 
-              src="https://images.pexels.com/photos/3845743/pexels-photo-3845743.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" 
-              alt="Modern clinic" 
-              className="w-full h-full object-cover grayscale"
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-black/80 to-transparent"></div>
-          </div>
-          <div className="relative py-24 px-8 sm:px-12 lg:px-16 text-white max-w-2xl">
-            <h2 className="text-4xl font-bold mb-6 leading-tight">Transforming Healthcare Through Innovation</h2>
-            <p className="text-xl text-gray-200 mb-8">
-              We're on a mission to simplify practice management so you can focus on what matters most—your patients.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <a href="#mission" className="px-6 py-3 bg-white text-black rounded-lg font-medium hover:bg-gray-100 transition-colors">
-                Our Mission
-              </a>
-              <a href="#evolution" className="px-6 py-3 border border-white/70 rounded-lg font-medium hover:bg-white/10 transition-colors">
-                Our Evolution
-              </a>
-            </div>
-          </div>
-        </div>
-        
         {/* Mission & Vision Section with Modern Cards */}
         <div id="mission" className="mb-24">
           <div className="max-w-3xl mx-auto mb-12 text-center">

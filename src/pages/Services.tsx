@@ -14,29 +14,12 @@ const Services = () => {
     <div className="bg-white min-h-screen">
       <PageHeader 
         title="ClinicFlow Pro Services" 
-        description="Comprehensive solutions for all your healthcare practice management needs"
+        description="A unified platform for healthcare practices of all specialties, from dental to general medicine and beyond."
         breadcrumbs={breadcrumbs}
+        className="bg-gradient-to-r from-blue-500/10 to-purple-500/10"
       />
       
       <div className="container max-w-7xl mx-auto px-4 py-16 sm:px-6 lg:px-8">
-        {/* Hero Section */}
-        <div className="relative rounded-2xl overflow-hidden mb-16">
-          <div className="absolute inset-0">
-            <img 
-              src="https://images.pexels.com/photos/7089401/pexels-photo-7089401.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" 
-              alt="Healthcare technology" 
-              className="w-full h-full object-cover grayscale"
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-black/80 to-transparent"></div>
-          </div>
-          <div className="relative py-20 px-8 sm:px-12 lg:px-16 text-white max-w-2xl">
-            <h2 className="text-4xl font-bold mb-6 leading-tight">Healthcare Management, Simplified</h2>
-            <p className="text-xl text-gray-200 mb-8">
-              A unified platform for healthcare practices of all specialties, from dental to general medicine and beyond.
-            </p>
-          </div>
-        </div>
-
         <Tabs defaultValue="overview" className="w-full">
           <TabsList className="w-full max-w-lg mx-auto grid grid-cols-3 mb-12">
             <TabsTrigger value="overview">Overview</TabsTrigger>
