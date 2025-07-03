@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation, Outlet } from 'react-router-dom';
 import { cn } from '@/lib/utils';
 import MobileMenu from './MobileMenu';
+import TelegramChat from './TelegramChat';
 import { useTransitionModalContext } from '@/App';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
 import { Info } from 'lucide-react';
@@ -238,6 +239,11 @@ const Layout = () => {
           </div>
         </div>
       </footer>
+      
+      {/* Chat Component (only visible on desktop) */}
+      <div className="hidden md:block">
+        <TelegramChat />
+      </div>
     </div>
   );
 };

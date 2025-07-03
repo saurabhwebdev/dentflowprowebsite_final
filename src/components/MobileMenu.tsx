@@ -6,7 +6,8 @@ import {
   SheetTrigger 
 } from '@/components/ui/sheet';
 import { useTransitionModalContext } from '@/App';
-import { Info } from 'lucide-react';
+import { Info, MessageSquare } from 'lucide-react';
+import TelegramChat from './TelegramChat';
 
 type NavItem = {
   name: string;
@@ -74,6 +75,9 @@ const MobileMenu = () => {
                   {item.name}
                 </Link>
               ))}
+              
+              {/* Chat button */}
+              <TelegramChat />
               
               {/* Transition info button */}
               <button
