@@ -304,7 +304,7 @@ const Contact = () => {
         isOpen={isSuccessModalOpen} 
         onClose={closeSuccessModal}
         title="Message Sent!"
-        description="Thank you for contacting us. We've received your message and will get back to you as soon as possible."
+        message="Thank you for reaching out. We'll get back to you as soon as possible."
       />
     </div>
   );
@@ -313,34 +313,34 @@ const Contact = () => {
 // Contact Information Data
 const contactInfo = [
   {
-    title: "Email",
-    content: "info@clinicflowpro.com",
-    icon: <Mail className="h-5 w-5 text-blue-600" />,
-    extra: "We usually respond within 24 hours"
+    icon: <MapPin className="h-5 w-5 text-blue-600" />,
+    title: "Office Address",
+    content: "100 Feet Road, Indiranagar, Bengaluru, Karnataka 560038, India",
+    extra: "Visit us during business hours"
   },
   {
-    title: "Phone",
-    content: "+1 (800) 123-4567",
     icon: <Phone className="h-5 w-5 text-blue-600" />,
-    extra: "Monday to Friday, 9am to 6pm EST"
+    title: "Phone",
+    content: "+91-8087098711",
+    extra: "Monday to Saturday, 9:00 AM to 7:00 PM IST"
   },
   {
-    title: "Office",
-    content: "123 ClinicFlow Tower, Whitefield Main Road, Bangalore, Karnataka 560066, India",
-    icon: <MapPin className="h-5 w-5 text-blue-600" />
+    icon: <Mail className="h-5 w-5 text-blue-600" />,
+    title: "Email",
+    content: "contact@clinicflow.space",
+    extra: "We'll respond as soon as possible"
   },
   {
+    icon: <MessageSquare className="h-5 w-5 text-blue-600" />,
     title: "Live Chat",
     content: "Available on our website",
-    icon: <MessageSquare className="h-5 w-5 text-blue-600" />,
-    extra: "Our support team is online 24/7"
+    extra: "Chat with our support team in real-time"
   }
 ];
 
 // Office Hours Data
 const officeHours = [
-  { days: "Monday - Friday", hours: "9:00 AM - 6:00 PM" },
-  { days: "Saturday", hours: "10:00 AM - 4:00 PM" },
+  { days: "Monday - Saturday", hours: "9:00 AM - 7:00 PM IST" },
   { days: "Sunday", hours: "Closed" }
 ];
 
