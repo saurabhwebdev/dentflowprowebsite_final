@@ -73,7 +73,7 @@ const App = () => {
         <TransitionModalContext.Provider value={{ isOpen, openModal, closeModal }}>
           <Toaster />
           <Sonner />
-          <BrowserRouter>
+          <BrowserRouter basename="/">
             <ScrollToTop />
             <Routes>
               <Route element={<Layout />}>
