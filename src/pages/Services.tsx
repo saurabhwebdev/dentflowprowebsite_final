@@ -2,7 +2,7 @@ import React from 'react';
 import { PageHeader } from '@/components/ui/page-header';
 import { Card } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Check, Users, Calendar, FileText, LineChart, Settings, Shield } from 'lucide-react';
+import { Check, Users, Calendar, FileText, LineChart, Settings, Shield, Building, HeartPulse, Stethoscope, Syringe } from 'lucide-react';
 
 const Services = () => {
   const breadcrumbs = [
@@ -13,24 +13,42 @@ const Services = () => {
   return (
     <div className="bg-white min-h-screen">
       <PageHeader 
-        title="ClinicFlow Services" 
-        description="Comprehensive solutions for all your clinic management needs"
+        title="ClinicFlow Pro Services" 
+        description="Comprehensive solutions for all your healthcare practice management needs"
         breadcrumbs={breadcrumbs}
       />
       
       <div className="container max-w-7xl mx-auto px-4 py-16 sm:px-6 lg:px-8">
+        {/* Hero Section */}
+        <div className="relative rounded-2xl overflow-hidden mb-16">
+          <div className="absolute inset-0">
+            <img 
+              src="https://images.pexels.com/photos/7089401/pexels-photo-7089401.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" 
+              alt="Healthcare technology" 
+              className="w-full h-full object-cover grayscale"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-black/80 to-transparent"></div>
+          </div>
+          <div className="relative py-20 px-8 sm:px-12 lg:px-16 text-white max-w-2xl">
+            <h2 className="text-4xl font-bold mb-6 leading-tight">Healthcare Management, Simplified</h2>
+            <p className="text-xl text-gray-200 mb-8">
+              A unified platform for healthcare practices of all specialties, from dental to general medicine and beyond.
+            </p>
+          </div>
+        </div>
+
         <Tabs defaultValue="overview" className="w-full">
           <TabsList className="w-full max-w-lg mx-auto grid grid-cols-3 mb-12">
             <TabsTrigger value="overview">Overview</TabsTrigger>
             <TabsTrigger value="features">Core Features</TabsTrigger>
-            <TabsTrigger value="getting-started">Getting Started</TabsTrigger>
+            <TabsTrigger value="specialties">Specialties</TabsTrigger>
           </TabsList>
           
           {/* Overview Tab */}
           <TabsContent value="overview">
             <div className="max-w-3xl mx-auto mb-16 text-center">
               <h2 className="text-3xl font-bold tracking-tight mb-4">
-                Streamlined Clinic Management
+                Streamlined Practice Management
               </h2>
               <p className="text-lg text-gray-600">
                 ClinicFlow Pro provides comprehensive solutions for healthcare practices of all specialties. 
@@ -50,14 +68,22 @@ const Services = () => {
               ))}
             </div>
             
-            <div className="bg-gray-50 rounded-xl p-8 border border-gray-200">
-              <div className="max-w-3xl mx-auto">
-                <h3 className="text-2xl font-bold mb-6 text-center">Why Choose ClinicFlow?</h3>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
+              <div className="relative">
+                <div className="absolute -inset-4 bg-gray-200/30 rounded-2xl transform rotate-2"></div>
+                <img 
+                  src="https://images.pexels.com/photos/7579831/pexels-photo-7579831.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" 
+                  alt="Healthcare professionals" 
+                  className="relative rounded-xl shadow-lg w-full h-[350px] object-cover grayscale"
+                />
+              </div>
+              <div>
+                <h3 className="text-2xl font-bold mb-6">Why Choose ClinicFlow Pro?</h3>
+                <div className="space-y-4">
                   {benefits.map((benefit, index) => (
                     <div key={index} className="flex items-start gap-3">
                       <div className="flex-shrink-0 mt-1">
-                        <Check className="h-5 w-5 text-green-500" />
+                        <Check className="h-5 w-5 text-black" />
                       </div>
                       <div>
                         <h4 className="font-medium">{benefit.title}</h4>
@@ -65,6 +91,26 @@ const Services = () => {
                       </div>
                     </div>
                   ))}
+                </div>
+                <div className="mt-8">
+                  <button className="px-6 py-3 bg-black text-white rounded-lg font-medium hover:bg-gray-800 transition-colors">
+                    Schedule a Demo
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-gray-50 rounded-xl p-8 border border-gray-200">
+              <div className="max-w-3xl mx-auto text-center">
+                <h3 className="text-2xl font-bold mb-6">From DentFlow Pro to ClinicFlow Pro</h3>
+                <p className="text-gray-600 mb-6">
+                  While we've expanded our platform to serve healthcare practices of all specialties, we remain committed 
+                  to providing the exceptional dental practice management tools that made us a leader in the field.
+                </p>
+                <div className="flex justify-center">
+                  <button className="px-6 py-3 bg-black text-white rounded-lg font-medium hover:bg-gray-800 transition-colors">
+                    Learn About Our Evolution
+                  </button>
                 </div>
               </div>
             </div>
@@ -74,92 +120,147 @@ const Services = () => {
           <TabsContent value="features">
             <div className="max-w-3xl mx-auto mb-12">
               <h2 className="text-3xl font-bold tracking-tight mb-4 text-center">
-                Powerful Features for Modern Clinics
+                Powerful Features for Modern Healthcare Practices
               </h2>
               <p className="text-center text-lg text-gray-600 mb-12">
                 Our comprehensive suite of tools adapts to your specific needs, regardless of your specialty.
               </p>
               
-              {featureGroups.map((group, index) => (
-                <div key={index} className="mb-12">
-                  <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
-                    {group.icon}
-                    {group.title}
-                  </h3>
-                  <div className="border-l-2 border-gray-200 pl-6 space-y-4">
-                    {group.features.map((feature, idx) => (
-                      <div key={idx} className="mb-4">
-                        <h4 className="font-semibold">{feature.title}</h4>
-                        <p className="text-gray-600">{feature.description}</p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </TabsContent>
-          
-          {/* Getting Started Tab */}
-          <TabsContent value="getting-started">
-            <div className="max-w-3xl mx-auto">
-              <h2 className="text-3xl font-bold tracking-tight mb-4 text-center">
-                Getting Started with ClinicFlow
-              </h2>
-              <p className="text-center text-lg text-gray-600 mb-12">
-                Setting up your clinic on our platform is simple and intuitive. Follow these steps to get started.
-              </p>
-              
-              <div className="space-y-8">
-                {gettingStartedSteps.map((step, index) => (
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16">
+                {featureGroups.map((group, index) => (
                   <div key={index} className="relative">
-                    <div className="flex gap-4">
-                      <div className="flex-shrink-0 h-10 w-10 rounded-full bg-black text-white flex items-center justify-center font-bold">
-                        {index + 1}
-                      </div>
-                      <div className="flex-1">
-                        <h3 className="text-xl font-bold mb-2">{step.title}</h3>
-                        <p className="text-gray-600 mb-3">{step.description}</p>
-                        
-                        {step.substeps && (
-                          <ul className="space-y-2 ml-2 mt-4">
-                            {step.substeps.map((substep, idx) => (
-                              <li key={idx} className="flex items-start gap-2">
-                                <Check className="h-5 w-5 text-green-500 flex-shrink-0 mt-0.5" />
-                                <span className="text-gray-700">{substep}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        )}
-                        
-                        {step.tip && (
-                          <div className="bg-gray-50 p-4 rounded-lg mt-4 border border-gray-200">
-                            <p className="text-sm font-medium">Tip: {step.tip}</p>
+                    <div className="absolute -top-10 left-0 w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center">
+                      {group.icon}
+                    </div>
+                    <div className="pt-8">
+                      <h3 className="text-xl font-bold mb-4 border-b pb-2 border-gray-200">
+                        {group.title}
+                      </h3>
+                      <div className="space-y-4">
+                        {group.features.map((feature, idx) => (
+                          <div key={idx} className="flex items-start gap-3">
+                            <Check className="h-5 w-5 text-black flex-shrink-0 mt-0.5" />
+                            <div>
+                              <h4 className="font-semibold">{feature.title}</h4>
+                              <p className="text-gray-600 text-sm">{feature.description}</p>
+                            </div>
                           </div>
-                        )}
+                        ))}
                       </div>
                     </div>
-                    
-                    {index < gettingStartedSteps.length - 1 && (
-                      <div className="absolute left-5 top-10 h-full w-0 border-l-2 border-dashed border-gray-200"></div>
-                    )}
                   </div>
                 ))}
               </div>
-              
-              <div className="mt-12 text-center">
-                <h3 className="text-xl font-bold mb-4">Ready to Get Started?</h3>
-                <div className="flex gap-4 justify-center">
-                  <button className="px-6 py-3 bg-black text-white rounded-lg font-medium hover:bg-gray-800 transition-colors">
-                    Sign Up Now
+            </div>
+
+            <div className="relative rounded-2xl overflow-hidden mt-16">
+              <div className="absolute inset-0">
+                <img 
+                  src="https://images.pexels.com/photos/7743498/pexels-photo-7743498.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" 
+                  alt="Healthcare professionals with technology" 
+                  className="w-full h-full object-cover grayscale"
+                />
+                <div className="absolute inset-0 bg-black/70"></div>
+              </div>
+              <div className="relative py-12 px-8 text-center text-white">
+                <h2 className="text-3xl font-bold mb-4">Ready to Transform Your Practice?</h2>
+                <p className="text-lg mb-8 max-w-2xl mx-auto">
+                  Join thousands of healthcare professionals who've elevated their practice management with ClinicFlow Pro.
+                </p>
+                <div className="flex flex-wrap gap-4 justify-center">
+                  <button className="px-6 py-3 bg-white text-black rounded-lg font-medium hover:bg-gray-100 transition-colors">
+                    Get Started
                   </button>
-                  <button className="px-6 py-3 border border-gray-300 rounded-lg font-medium hover:bg-gray-50 transition-colors">
-                    Schedule a Demo
+                  <button className="px-6 py-3 border border-white rounded-lg font-medium hover:bg-white/10 transition-colors">
+                    Contact Sales
                   </button>
                 </div>
+              </div>
+            </div>
+          </TabsContent>
+          
+          {/* Specialties Tab */}
+          <TabsContent value="specialties">
+            <div className="max-w-3xl mx-auto">
+              <h2 className="text-3xl font-bold tracking-tight mb-4 text-center">
+                Solutions for Every Specialty
+              </h2>
+              <p className="text-center text-lg text-gray-600 mb-12">
+                ClinicFlow Pro adapts to the unique needs of different healthcare specialties.
+              </p>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+                {specialtyCards.map((specialty, index) => (
+                  <Card key={index} className="p-6 border border-gray-200 hover:border-black/30 transition-all hover:shadow-md">
+                    <div className="flex items-start gap-4">
+                      <div className="w-12 h-12 rounded-lg bg-gray-100 flex items-center justify-center flex-shrink-0">
+                        {specialty.icon}
+                      </div>
+                      <div>
+                        <h3 className="text-xl font-bold mb-2">{specialty.title}</h3>
+                        <p className="text-gray-600 mb-4">{specialty.description}</p>
+                        <ul className="space-y-1 mt-4">
+                          {specialty.features.map((feature, idx) => (
+                            <li key={idx} className="flex items-start gap-2">
+                              <Check className="h-4 w-4 text-black flex-shrink-0 mt-0.5" />
+                              <span className="text-sm text-gray-600">{feature}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  </Card>
+                ))}
+              </div>
+              
+              <div className="bg-gray-50 rounded-xl p-8 border border-gray-200 text-center">
+                <h3 className="text-xl font-bold mb-4">Don't See Your Specialty?</h3>
+                <p className="text-gray-600 mb-6 max-w-xl mx-auto">
+                  ClinicFlow Pro is highly customizable to meet the needs of virtually any healthcare specialty. 
+                  Contact us to learn how we can tailor our solution for your specific practice.
+                </p>
+                <button className="px-6 py-3 bg-black text-white rounded-lg font-medium hover:bg-gray-800 transition-colors">
+                  Contact Our Specialty Team
+                </button>
               </div>
             </div>
           </TabsContent>
         </Tabs>
+        
+        {/* Testimonials Section */}
+        <div className="mt-24">
+          <h2 className="text-3xl font-bold tracking-tight mb-8 text-center">
+            Trusted by Healthcare Professionals
+          </h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {testimonials.map((testimonial, index) => (
+              <Card key={index} className="p-6 border border-gray-200">
+                <div className="flex flex-col h-full">
+                  <div className="mb-4">
+                    <div className="flex gap-0.5 mb-4">
+                      {[...Array(5)].map((_, i) => (
+                        <svg key={i} xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="black" stroke="none">
+                          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                        </svg>
+                      ))}
+                    </div>
+                    <p className="text-gray-600 italic mb-4">"{testimonial.quote}"</p>
+                  </div>
+                  <div className="mt-auto flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-full overflow-hidden bg-gray-100">
+                      <img src={testimonial.avatar} alt={testimonial.name} className="w-full h-full object-cover grayscale" />
+                    </div>
+                    <div>
+                      <p className="font-bold">{testimonial.name}</p>
+                      <p className="text-sm text-gray-600">{testimonial.role}, {testimonial.specialty}</p>
+                    </div>
+                  </div>
+                </div>
+              </Card>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );
@@ -169,7 +270,7 @@ const Services = () => {
 const serviceCards = [
   {
     title: "Patient Management",
-    description: "Comprehensive patient records, history tracking, and easy access to essential information.",
+    description: "Comprehensive patient records, history tracking, and secure access to essential information.",
     icon: <Users className="h-6 w-6 text-black" />
   },
   {
@@ -202,8 +303,12 @@ const serviceCards = [
 // Benefits Data
 const benefits = [
   {
+    title: "Unified Healthcare Platform",
+    description: "A single solution that works for multiple healthcare specialties while maintaining specialty-specific features."
+  },
+  {
     title: "Improved Efficiency",
-    description: "Reduce administrative workload by up to 35% with streamlined workflows."
+    description: "Reduce administrative workload by up to 35% with streamlined workflows and automation."
   },
   {
     title: "Enhanced Patient Experience",
@@ -211,19 +316,15 @@ const benefits = [
   },
   {
     title: "Accurate Billing",
-    description: "Minimize errors and maximize revenue with our intelligent billing system."
+    description: "Minimize errors and maximize revenue with our intelligent billing system and specialty-specific coding."
   },
   {
     title: "Data-Driven Decisions",
-    description: "Make informed choices based on comprehensive practice analytics."
+    description: "Make informed choices based on comprehensive practice analytics and performance metrics."
   },
   {
     title: "Seamless Integration",
-    description: "Works with your existing systems and third-party applications."
-  },
-  {
-    title: "Specialty-Specific Features",
-    description: "Tailored functionality for various medical specialties including dental practices."
+    description: "Works with your existing systems and third-party applications across the healthcare ecosystem."
   },
 ];
 
@@ -231,7 +332,7 @@ const benefits = [
 const featureGroups = [
   {
     title: "Patient Management",
-    icon: <Users className="h-5 w-5 text-black" />,
+    icon: <Users className="h-8 w-8 text-black" />,
     features: [
       {
         title: "Comprehensive Patient Records",
@@ -244,12 +345,16 @@ const featureGroups = [
       {
         title: "Patient Portal",
         description: "Allow patients to update information, view records, and communicate securely."
+      },
+      {
+        title: "Multi-Specialty Support",
+        description: "Track patient data across different departments or specialties within your practice."
       }
     ]
   },
   {
     title: "Appointment & Scheduling",
-    icon: <Calendar className="h-5 w-5 text-black" />,
+    icon: <Calendar className="h-8 w-8 text-black" />,
     features: [
       {
         title: "Smart Scheduling",
@@ -262,16 +367,24 @@ const featureGroups = [
       {
         title: "Online Booking",
         description: "Let patients book appointments directly through your website or app."
+      },
+      {
+        title: "Resource Management",
+        description: "Manage rooms, equipment, and staff schedules efficiently across specialties."
       }
     ]
   },
   {
     title: "Billing & Financial Management",
-    icon: <FileText className="h-5 w-5 text-black" />,
+    icon: <FileText className="h-8 w-8 text-black" />,
     features: [
       {
         title: "Insurance Verification",
         description: "Verify coverage and eligibility before appointments."
+      },
+      {
+        title: "Specialty-Specific Coding",
+        description: "Integrated coding systems relevant to each medical specialty."
       },
       {
         title: "Claim Processing",
@@ -285,7 +398,7 @@ const featureGroups = [
   },
   {
     title: "Reporting & Analytics",
-    icon: <LineChart className="h-5 w-5 text-black" />,
+    icon: <LineChart className="h-8 w-8 text-black" />,
     features: [
       {
         title: "Practice Performance",
@@ -296,6 +409,10 @@ const featureGroups = [
         description: "Generate detailed financial reports for accounting and tax purposes."
       },
       {
+        title: "Clinical Outcomes",
+        description: "Monitor treatment effectiveness and patient outcomes by specialty."
+      },
+      {
         title: "Custom Dashboards",
         description: "Create personalized views of the most important data for your practice."
       }
@@ -303,50 +420,80 @@ const featureGroups = [
   }
 ];
 
-// Getting Started Steps
-const gettingStartedSteps = [
+// Specialty Cards Data
+const specialtyCards = [
   {
-    title: "Create Your Account",
-    description: "Sign up and set up your initial administrator account to access the platform.",
-    substeps: [
-      "Visit the ClinicFlow signup page",
-      "Enter your email address and create a password",
-      "Verify your email address",
-      "Complete your profile information"
-    ],
-    tip: "Use a strong, unique password for your ClinicFlow account to ensure security."
-  },
-  {
-    title: "Configure Your Clinic Profile",
-    description: "Add your clinic's information to personalize the system and documents.",
-    substeps: [
-      "Enter your clinic name and address",
-      "Set your practice hours and contact information",
-      "Add doctor details and credentials",
-      "Configure regional settings and tax information"
-    ],
-    tip: "Complete your clinic profile before adding patients to ensure all documents display the correct information."
-  },
-  {
-    title: "Understand the Dashboard",
-    description: "Familiarize yourself with the main interface to efficiently manage your practice.",
-    substeps: [
-      "Explore the navigation menu and main sections",
-      "Review the dashboard overview and quick actions",
-      "Customize your view preferences",
-      "Set up user accounts for your staff"
+    title: "Dental Practices",
+    description: "Our original focus area, with comprehensive tools for dental practice management.",
+    icon: <Stethoscope className="h-6 w-6 text-black" />,
+    features: [
+      "Dental charting and treatment planning",
+      "Imaging integration",
+      "Procedure-specific documentation",
+      "Dental insurance processing",
+      "Lab work management"
     ]
   },
   {
-    title: "Get Your Clinic Operational",
-    description: "Take the final steps to start using ClinicFlow for your daily operations.",
-    substeps: [
-      "Add your existing patients to the system",
-      "Set up your appointment schedule",
-      "Configure email notifications",
-      "Import historical data if needed"
-    ],
-    tip: "Start with a small batch of patients to get comfortable with the system before importing your entire database."
+    title: "General Practice",
+    description: "Essential tools for primary care physicians and general practitioners.",
+    icon: <HeartPulse className="h-6 w-6 text-black" />,
+    features: [
+      "Comprehensive patient health records",
+      "Preventive care scheduling",
+      "Prescription management",
+      "Lab result integration",
+      "Referral management"
+    ]
+  },
+  {
+    title: "Specialty Clinics",
+    description: "Tailored solutions for specialized medical practices.",
+    icon: <Syringe className="h-6 w-6 text-black" />,
+    features: [
+      "Specialty-specific documentation templates",
+      "Custom clinical workflows",
+      "Equipment and resource scheduling",
+      "Specialized billing codes",
+      "Treatment outcome tracking"
+    ]
+  },
+  {
+    title: "Multi-Specialty Practices",
+    description: "Unified management for clinics offering multiple healthcare services.",
+    icon: <Building className="h-6 w-6 text-black" />,
+    features: [
+      "Cross-specialty patient records",
+      "Departmental resource allocation",
+      "Internal referral management",
+      "Consolidated reporting",
+      "Specialty-specific configurations"
+    ]
+  }
+];
+
+// Testimonials Data
+const testimonials = [
+  {
+    quote: "Transitioning from DentFlow Pro to ClinicFlow Pro was seamless. We kept all our dental-specific features while gaining new capabilities for our expanding practice.",
+    name: "Dr. Sarah Johnson",
+    role: "Practice Owner",
+    specialty: "Dental",
+    avatar: "https://images.pexels.com/photos/5327585/pexels-photo-5327585.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+  },
+  {
+    quote: "The unified platform has significantly improved our workflow. Managing multiple specialties under one system has reduced our administrative overhead by nearly 40%.",
+    name: "Dr. Michael Chen",
+    role: "Medical Director",
+    specialty: "Multi-Specialty Clinic",
+    avatar: "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+  },
+  {
+    quote: "As a new practice, we needed a solution that could grow with us. ClinicFlow Pro provides exactly what we need now, with the flexibility to expand as our practice evolves.",
+    name: "Dr. Jessica Williams",
+    role: "Physician",
+    specialty: "General Practice",
+    avatar: "https://images.pexels.com/photos/4225880/pexels-photo-4225880.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
   }
 ];
 
