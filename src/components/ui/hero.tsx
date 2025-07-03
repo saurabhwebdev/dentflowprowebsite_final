@@ -28,12 +28,10 @@ export function Hero({ className }: HeroProps) {
       
       <div className="container px-4 md:px-6 relative z-10">
         <div className="max-w-5xl mx-auto text-center">
-          <div className="flex justify-center">
-            <h1 className="text-5xl font-bold tracking-tight sm:text-6xl md:text-7xl lg:text-8xl mb-8 text-white animate-slide-up whitespace-nowrap inline-block text-center">
-              Modern Clinic Management
-            </h1>
-          </div>
-          <p className="text-lg text-gray-800 md:text-xl max-w-2xl mx-auto mb-10 font-medium animate-fade-in">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight mb-8 text-white animate-slide-up leading-tight">
+            Modern Clinic Management
+          </h1>
+          <p className="text-base sm:text-lg md:text-xl max-w-2xl mx-auto mb-10 font-medium animate-fade-in text-gray-800">
             Streamline your healthcare practice with our intuitive, efficient, and comprehensive management solution for all clinical specialties.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12 animate-fade-in-delayed">
@@ -45,7 +43,7 @@ export function Hero({ className }: HeroProps) {
             </Button>
           </div>
           
-          <div className="mt-14 grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto animate-slide-up-delayed">
+          <div className="mt-8 sm:mt-14 grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 max-w-3xl mx-auto animate-slide-up-delayed">
             <div className="bg-white/60 backdrop-blur-sm p-4 rounded-lg shadow-sm border border-gray-300 flex items-center gap-3 hover:scale-105 transition-transform hover:border-black">
               <div className="bg-gray-100 p-2 rounded-full">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-black">

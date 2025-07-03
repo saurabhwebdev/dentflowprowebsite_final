@@ -82,21 +82,23 @@ const Layout = () => {
                   ))}
                 </div>
                 
-                {/* Transition info button */}
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <button 
-                      onClick={openModal}
-                      className="flex items-center justify-center w-7 h-7 rounded-full bg-black text-white hover:bg-gray-800 transition-colors" // Reduced from w-8 h-8 to w-7 h-7
-                      aria-label="DentFlow to ClinicFlow Transition Info"
-                    >
-                      <Info size={14} /> {/* Reduced from size 16 to 14 */}
-                    </button>
-                  </TooltipTrigger>
-                  <TooltipContent>
-                    <p>DentFlow to ClinicFlow Transition Info</p>
-                  </TooltipContent>
-                </Tooltip>
+                {/* Transition info button - HIDDEN ON MOBILE */}
+                <div className="hidden md:block">
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <button 
+                        onClick={openModal}
+                        className="flex items-center justify-center w-7 h-7 rounded-full bg-black text-white hover:bg-gray-800 transition-colors" 
+                        aria-label="DentFlow to ClinicFlow Transition Info"
+                      >
+                        <Info size={14} /> 
+                      </button>
+                    </TooltipTrigger>
+                    <TooltipContent>
+                      <p>DentFlow to ClinicFlow Transition Info</p>
+                    </TooltipContent>
+                  </Tooltip>
+                </div>
               </nav>
 
               {/* Mobile Menu */}
@@ -148,21 +150,23 @@ const Layout = () => {
                   ))}
                 </div>
                 
-                {/* Compact Transition Info Button */}
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <button
-                      onClick={openModal}
-                      className="px-2 mx-1 flex items-center justify-center h-8 rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors"
-                      aria-label="DentFlow to ClinicFlow Transition Info"
-                    >
-                      <Info size={14} />
-                    </button>
-                  </TooltipTrigger>
-                  <TooltipContent>
-                    <p>DentFlow to ClinicFlow Transition Info</p>
-                  </TooltipContent>
-                </Tooltip>
+                {/* Compact Transition Info Button - HIDDEN ON MOBILE */}
+                <div className="hidden md:block">
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <button
+                        onClick={openModal}
+                        className="px-2 mx-1 flex items-center justify-center h-8 rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors"
+                        aria-label="DentFlow to ClinicFlow Transition Info"
+                      >
+                        <Info size={14} />
+                      </button>
+                    </TooltipTrigger>
+                    <TooltipContent>
+                      <p>DentFlow to ClinicFlow Transition Info</p>
+                    </TooltipContent>
+                  </Tooltip>
+                </div>
                 
                 {/* Mobile Menu (in pill) */}
                 <div className="md:hidden">
