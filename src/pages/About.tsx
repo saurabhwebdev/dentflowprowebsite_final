@@ -2,6 +2,7 @@ import React from 'react';
 import { PageHeader } from '@/components/ui/page-header';
 import { Card } from '@/components/ui/card';
 import { Users, Award, Clock, Lightbulb, Heart, CheckCircle, Zap, Shield, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const About = () => {
   const breadcrumbs = [
@@ -316,12 +317,12 @@ const About = () => {
               Join thousands of healthcare professionals who've elevated their practice management with ClinicFlow Pro.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
-              <button className="px-6 py-3 bg-white text-black rounded-lg font-medium hover:bg-gray-100 transition-colors">
+              <a href="https://clinicflow-roan.vercel.app/signin" target="_blank" rel="noopener noreferrer" className="px-6 py-3 bg-white text-black rounded-lg font-medium hover:bg-gray-100 transition-colors">
                 Get Started
-              </button>
-              <button className="px-6 py-3 border border-white/70 rounded-lg font-medium hover:bg-white/10 transition-colors">
+              </a>
+              <Link to="/contact" className="px-6 py-3 border border-white/70 rounded-lg font-medium hover:bg-white/10 transition-colors">
                 Contact Sales
-              </button>
+              </Link>
             </div>
           </div>
         </div>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button } from './button';
 import { cn } from '@/lib/utils';
+import { Link } from 'react-router-dom';
 
 interface HeroProps {
   className?: string;
@@ -35,12 +36,16 @@ export function Hero({ className }: HeroProps) {
             Streamline your healthcare practice with our intuitive, efficient, and comprehensive management solution for all clinical specialties.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12 animate-fade-in-delayed">
-            <Button size="lg" className="h-12 px-8 font-medium bg-black hover:bg-gray-800 text-white">
-              Get Started
-            </Button>
-            <Button variant="outline" size="lg" className="h-12 px-8 font-medium border-black text-black hover:bg-gray-100">
-              Book a Demo
-            </Button>
+            <a href="https://clinicflow-roan.vercel.app/signin" target="_blank" rel="noopener noreferrer">
+              <Button size="lg" className="h-12 px-8 font-medium bg-black hover:bg-gray-800 text-white">
+                Get Started
+              </Button>
+            </a>
+            <Link to="/contact">
+              <Button variant="outline" size="lg" className="h-12 px-8 font-medium border-black text-black hover:bg-gray-100">
+                Book a Demo
+              </Button>
+            </Link>
           </div>
           
           <div className="mt-8 sm:mt-14 grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 max-w-3xl mx-auto animate-slide-up-delayed">

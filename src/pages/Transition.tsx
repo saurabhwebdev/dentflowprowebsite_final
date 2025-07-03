@@ -67,12 +67,14 @@ const Transition = () => {
         </p>
 
         <div className="text-center mt-12">
-          <Link 
-            to="/" 
+          <a 
+            href="https://clinicflow-roan.vercel.app/signin" 
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-black hover:bg-gray-800"
           >
             Explore ClinicFlow Pro
-          </Link>
+          </a>
         </div>
       </div>
     </div>

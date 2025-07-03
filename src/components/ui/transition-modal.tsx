@@ -1,14 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { Button } from './button';
+import { Button } from '@/components/ui/button';
 import { X } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 interface TransitionModalProps {
   onClose: () => void;
 }
 
 export function TransitionModal({ onClose }: TransitionModalProps) {
+  const navigate = useNavigate();
+  
   const handleReadMoreClick = () => {
-    window.location.href = '/transition';
+    navigate('/transition');
     onClose();
   };
 
