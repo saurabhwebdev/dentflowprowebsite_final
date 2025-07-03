@@ -40,9 +40,6 @@ const App = () => {
   
   // Initialize the modal on first load
   useEffect(() => {
-    // Clear any previous localStorage to always show the modal for testing
-    localStorage.removeItem('clinicflow-transition-seen');
-    
     // Check if user has seen the modal before
     const hasSeenModal = localStorage.getItem('clinicflow-transition-seen');
     

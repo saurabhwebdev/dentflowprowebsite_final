@@ -36,19 +36,19 @@ export function generateLocalBusinessSchema() {
     image: "https://clinicflow.space/metaimages/metaimage.png",
     "@id": "https://clinicflow.space",
     url: "https://clinicflow.space",
-    telephone: "+1-555-123-4567",
+    telephone: "+91-8087098711",
     address: {
       "@type": "PostalAddress",
-      streetAddress: "123 Healthcare Ave",
-      addressLocality: "San Francisco",
-      addressRegion: "CA",
-      postalCode: "94103",
-      addressCountry: "US"
+      streetAddress: "100 Feet Road, Indiranagar",
+      addressLocality: "Bengaluru",
+      addressRegion: "Karnataka",
+      postalCode: "560038",
+      addressCountry: "IN"
     },
     geo: {
       "@type": "GeoCoordinates",
-      latitude: 37.7749,
-      longitude: -122.4194
+      latitude: 12.9784,
+      longitude: 77.6408
     },
     openingHoursSpecification: [
       {
@@ -58,13 +58,14 @@ export function generateLocalBusinessSchema() {
           "Tuesday",
           "Wednesday",
           "Thursday",
-          "Friday"
+          "Friday",
+          "Saturday"
         ],
         opens: "09:00",
-        closes: "17:00"
+        closes: "19:00"
       }
     ],
-    priceRange: "$$"
+    priceRange: "₹₹"
   });
 }
 
