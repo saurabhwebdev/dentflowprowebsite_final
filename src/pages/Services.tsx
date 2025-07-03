@@ -4,6 +4,8 @@ import { Card } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Check, Users, Calendar, FileText, LineChart, Settings, Shield, Building, HeartPulse, Stethoscope, Syringe } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
+import { generateBreadcrumbSchema } from '@/lib/utils';
 
 const Services = () => {
   const breadcrumbs = [
@@ -11,10 +13,24 @@ const Services = () => {
     { name: 'Services', href: '/services' }
   ];
 
+  const breadcrumbSchema = generateBreadcrumbSchema(
+    breadcrumbs.map(item => ({ name: item.name, url: `https://clinicflow.space${item.href}` }))
+  );
+
   return (
     <div className="bg-white min-h-screen">
+      <Helmet>
+        <title>Services | ClinicFlow - Modern Clinic Management Solution</title>
+        <meta name="description" content="Discover ClinicFlow's comprehensive suite of healthcare practice management services, designed for all clinical specialties." />
+        <link rel="canonical" href="https://clinicflow.space/services" />
+        <meta name="keywords" content="healthcare services, clinic management features, medical practice software, patient scheduling, medical billing" />
+        <script type="application/ld+json">
+          {JSON.stringify(breadcrumbSchema)}
+        </script>
+      </Helmet>
+      
       <PageHeader 
-        title="ClinicFlow Pro Services" 
+        title="ClinicFlow Services" 
         description="A unified platform for healthcare practices of all specialties, from dental to general medicine and beyond."
         breadcrumbs={breadcrumbs}
         className="bg-gradient-to-r from-blue-500/10 to-purple-500/10"

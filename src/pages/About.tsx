@@ -3,6 +3,8 @@ import { PageHeader } from '@/components/ui/page-header';
 import { Card } from '@/components/ui/card';
 import { Users, Award, Clock, Lightbulb, Heart, CheckCircle, Zap, Shield, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
+import { generateBreadcrumbSchema } from '@/lib/utils';
 
 const About = () => {
   const breadcrumbs = [
@@ -10,10 +12,24 @@ const About = () => {
     { name: 'About', href: '/about' }
   ];
 
+  const breadcrumbSchema = generateBreadcrumbSchema(
+    breadcrumbs.map(item => ({ name: item.name, url: `https://clinicflow.space${item.href}` }))
+  );
+
   return (
     <div className="bg-white min-h-screen">
+      <Helmet>
+        <title>About Us | ClinicFlow - Modern Clinic Management Solution</title>
+        <meta name="description" content="Learn about ClinicFlow's mission to simplify healthcare practice management and our commitment to improving patient care through innovative software." />
+        <link rel="canonical" href="https://clinicflow.space/about" />
+        <meta name="keywords" content="about clinicflow, healthcare software company, medical practice management, clinic software team" />
+        <script type="application/ld+json">
+          {JSON.stringify(breadcrumbSchema)}
+        </script>
+      </Helmet>
+      
       <PageHeader 
-        title="About ClinicFlow Pro" 
+        title="About ClinicFlow" 
         description="We're on a mission to simplify practice management so you can focus on what matters most—your patients."
         breadcrumbs={breadcrumbs}
         className="bg-gradient-to-r from-blue-500/10 to-purple-500/10"

@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation, Outlet } from 'react-router-dom';
-import { cn } from '@/lib/utils';
+import { cn, generateOrganizationSchema, generateLocalBusinessSchema, generateSoftwareAppSchema } from '@/lib/utils';
 import MobileMenu from './MobileMenu';
 import TelegramChat from './TelegramChat';
 import { useTransitionModalContext } from '@/App';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
 import { Info } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { Helmet } from 'react-helmet-async';
 
 type NavItem = {
   name: string;
@@ -41,6 +42,19 @@ const Layout = () => {
 
   return (
     <div className="min-h-screen flex flex-col bg-white text-black">
+      <Helmet>
+        {/* Default SEO structured data for all pages */}
+        <script type="application/ld+json">
+          {JSON.stringify(generateOrganizationSchema())}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify(generateLocalBusinessSchema())}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify(generateSoftwareAppSchema())}
+        </script>
+      </Helmet>
+
       {/* Navbar - transforms based on scroll position */}
       <motion.header
         className={cn(
@@ -61,7 +75,7 @@ const Layout = () => {
                     <path d="M21.7,10.3l-9-8c-0.4-0.3-0.9-0.3-1.3,0l-9,8c-0.4,0.4-0.5,1-0.1,1.4s1,0.5,1.4,0.1L4,11.4V21c0,0.6,0.4,1,1,1h14c0.6,0,1-0.4,1-1v-9.6l0.3,0.3c0.4,0.4,1,0.3,1.4-0.1C22.1,11.3,22.1,10.6,21.7,10.3z M14,15h-1v1c0,0.6-0.4,1-1,1s-1-0.4-1-1v-1h-1c-0.6,0-1-0.4-1-1s0.4-1,1-1h1v-1c0-0.6,0.4-1,1-1s1,0.4,1,1v1h1c0.6,0,1,0.4,1,1S14.6,15,14,15z" />
                   </svg>
                 </div>
-                <h1 className="text-lg font-bold tracking-tight">ClinicFlow Pro</h1> {/* Reduced size from text-xl to text-lg */}
+                <h1 className="text-lg font-bold tracking-tight">ClinicFlow</h1> {/* Removed 'Pro' suffix */}
               </Link>
 
               {/* Navigation Pills */}
@@ -195,10 +209,10 @@ const Layout = () => {
                     <path d="M21.7,10.3l-9-8c-0.4-0.3-0.9-0.3-1.3,0l-9,8c-0.4,0.4-0.5,1-0.1,1.4s1,0.5,1.4,0.1L4,11.4V21c0,0.6,0.4,1,1,1h14c0.6,0,1-0.4,1-1v-9.6l0.3,0.3c0.4,0.4,1,0.3,1.4-0.1C22.1,11.3,22.1,10.6,21.7,10.3z M14,15h-1v1c0,0.6-0.4,1-1,1s-1-0.4-1-1v-1h-1c-0.6,0-1-0.4-1-1s0.4-1,1-1h1v-1c0-0.6,0.4-1,1-1s1,0.4,1,1v1h1c0.6,0,1,0.4,1,1S14.6,15,14,15z" />
                   </svg>
                 </div>
-                <h3 className="text-lg font-semibold">ClinicFlow Pro</h3>
+                <h3 className="text-lg font-semibold">ClinicFlow</h3> {/* Removed 'Pro' suffix */}
               </div>
               <p className="text-gray-600 text-sm">
-                Modern dental practice management solution built with precision and care.
+                Modern clinic management solution for all healthcare specialties.
               </p>
             </div>
             
@@ -234,7 +248,7 @@ const Layout = () => {
           
           <div className="mt-12 pt-8 border-t border-gray-200 text-center">
             <p className="text-gray-500 text-sm">
-              © {new Date().getFullYear()} ClinicFlow Pro. All rights reserved.
+              © {new Date().getFullYear()} ClinicFlow. All rights reserved.
             </p>
           </div>
         </div>

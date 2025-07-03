@@ -16,6 +16,7 @@ import CookiePolicy from "./pages/CookiePolicy";
 import { TransitionModal } from "./components/ui/transition-modal";
 import { useState, useEffect, createContext, useContext } from "react";
 import ScrollToTop from "./components/ScrollToTop";
+import { HelmetProvider } from "react-helmet-async";
 
 const queryClient = new QueryClient();
 
@@ -68,34 +69,36 @@ const App = () => {
   };
   
   return (
-    <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <TransitionModalContext.Provider value={{ isOpen, openModal, closeModal }}>
-          <Toaster />
-          <Sonner />
-          <BrowserRouter basename="/">
-            <ScrollToTop />
-            <Routes>
-              <Route element={<Layout />}>
-                <Route path="/" element={<Index />} />
-                <Route path="/services" element={<Services />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/contact" element={<Contact />} />
-                <Route path="/transition" element={<Transition />} />
-                <Route path="/privacy" element={<PrivacyPolicy />} />
-                <Route path="/terms" element={<TermsOfService />} />
-                <Route path="/cookies" element={<CookiePolicy />} />
-                {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-                <Route path="*" element={<NotFound />} />
-              </Route>
-            </Routes>
-            
-            {/* Modal is now inside BrowserRouter but not inside Routes */}
-            {isOpen && <TransitionModal onClose={closeModal} />}
-          </BrowserRouter>
-        </TransitionModalContext.Provider>
-      </TooltipProvider>
-    </QueryClientProvider>
+    <HelmetProvider>
+      <QueryClientProvider client={queryClient}>
+        <TooltipProvider>
+          <TransitionModalContext.Provider value={{ isOpen, openModal, closeModal }}>
+            <Toaster />
+            <Sonner />
+            <BrowserRouter basename="/">
+              <ScrollToTop />
+              <Routes>
+                <Route element={<Layout />}>
+                  <Route path="/" element={<Index />} />
+                  <Route path="/services" element={<Services />} />
+                  <Route path="/about" element={<About />} />
+                  <Route path="/contact" element={<Contact />} />
+                  <Route path="/transition" element={<Transition />} />
+                  <Route path="/privacy" element={<PrivacyPolicy />} />
+                  <Route path="/terms" element={<TermsOfService />} />
+                  <Route path="/cookies" element={<CookiePolicy />} />
+                  {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+                  <Route path="*" element={<NotFound />} />
+                </Route>
+              </Routes>
+              
+              {/* Modal is now inside BrowserRouter but not inside Routes */}
+              {isOpen && <TransitionModal onClose={closeModal} />}
+            </BrowserRouter>
+          </TransitionModalContext.Provider>
+        </TooltipProvider>
+      </QueryClientProvider>
+    </HelmetProvider>
   );
 };
 

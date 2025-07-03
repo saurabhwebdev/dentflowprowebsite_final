@@ -9,12 +9,18 @@ import { sendToTelegram } from '@/lib/telegram-service';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Loader2 } from 'lucide-react';
 import { SuccessModal, useSuccessModal } from '@/components/ui/success-modal';
+import { Helmet } from 'react-helmet-async';
+import { generateBreadcrumbSchema } from '@/lib/utils';
 
 const Contact = () => {
   const breadcrumbs = [
     { name: 'Home', href: '/' },
     { name: 'Contact', href: '/contact' }
   ];
+
+  const breadcrumbSchema = generateBreadcrumbSchema(
+    breadcrumbs.map(item => ({ name: item.name, url: `https://clinicflow.space${item.href}` }))
+  );
 
   const [formData, setFormData] = useState({
     firstName: '',
@@ -65,6 +71,16 @@ const Contact = () => {
 
   return (
     <div className="bg-white min-h-screen">
+      <Helmet>
+        <title>Contact Us | ClinicFlow - Modern Clinic Management Solution</title>
+        <meta name="description" content="Get in touch with ClinicFlow for questions, support, or to schedule a demo of our healthcare practice management solution." />
+        <link rel="canonical" href="https://clinicflow.space/contact" />
+        <meta name="keywords" content="contact clinicflow, healthcare software support, clinic management demo, medical practice software help" />
+        <script type="application/ld+json">
+          {JSON.stringify(breadcrumbSchema)}
+        </script>
+      </Helmet>
+      
       <PageHeader 
         title="Contact Us" 
         description="We're here to help and answer any questions you might have"
@@ -77,7 +93,7 @@ const Contact = () => {
           <div>
             <h2 className="text-3xl font-bold tracking-tight mb-6">Get in Touch</h2>
             <p className="text-gray-600 mb-8">
-              Have questions about ClinicFlow Pro? Fill out the form below and one of our team members 
+              Have questions about ClinicFlow? Fill out the form below and one of our team members 
               will get back to you as soon as possible.
             </p>
             
@@ -288,7 +304,7 @@ const Contact = () => {
         isOpen={isSuccessModalOpen} 
         onClose={closeSuccessModal}
         title="Message Sent!"
-        message="Thank you for contacting us. Your message has been delivered, and we'll get back to you as soon as possible."
+        description="Thank you for contacting us. We've received your message and will get back to you as soon as possible."
       />
     </div>
   );
