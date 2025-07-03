@@ -219,9 +219,9 @@ const Services = () => {
                   ClinicFlow Pro is highly customizable to meet the needs of virtually any healthcare specialty. 
                   Contact us to learn how we can tailor our solution for your specific practice.
                 </p>
-                <button className="px-6 py-3 bg-black text-white rounded-lg font-medium hover:bg-gray-800 transition-colors">
+                <Link to="/contact" className="inline-block px-6 py-3 bg-black text-white rounded-lg font-medium hover:bg-gray-800 transition-colors">
                   Contact Our Specialty Team
-                </button>
+                </Link>
               </div>
             </div>
           </TabsContent>

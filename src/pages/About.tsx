@@ -336,8 +336,25 @@ const About = () => {
               <a href="https://clinicflow-roan.vercel.app/signin" target="_blank" rel="noopener noreferrer" className="px-6 py-3 bg-white text-black rounded-lg font-medium hover:bg-gray-100 transition-colors">
                 Get Started
               </a>
-              <Link to="/contact" className="px-6 py-3 border border-white/70 rounded-lg font-medium hover:bg-white/10 transition-colors">
-                Contact Sales
+              <div className="mt-8">
+                <Link to="/contact" className="inline-block px-6 py-3 bg-black text-white rounded-lg font-medium hover:bg-gray-800 transition-colors">
+                  Schedule a Demo
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="bg-gray-50 rounded-xl p-8 border border-gray-200">
+          <div className="max-w-3xl mx-auto text-center">
+            <h3 className="text-2xl font-bold mb-6">From DentFlow Pro to ClinicFlow Pro</h3>
+            <p className="text-gray-600 mb-6">
+              While we've expanded our platform to serve healthcare practices of all specialties, we remain committed 
+              to providing the exceptional dental practice management tools that made us a leader in the field.
+            </p>
+            <div className="flex justify-center">
+              <Link to="/transition" className="inline-block px-6 py-3 bg-black text-white rounded-lg font-medium hover:bg-gray-800 transition-colors">
+                Learn About Our Evolution
               </Link>
             </div>
           </div>

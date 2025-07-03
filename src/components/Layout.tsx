@@ -237,6 +237,26 @@ const Layout = () => {
             </div>
             
             <div className="space-y-4">
+              <h3 className="text-lg font-semibold">Contact</h3>
+              <ul className="space-y-2 text-sm text-gray-600">
+                <li>100 Feet Road, Indiranagar</li>
+                <li>Bengaluru, Karnataka 560038</li>
+                <li>India</li>
+                <li><a href="tel:+918087098711" className="hover:text-black">+91-8087098711</a></li>
+                <li><a href="mailto:contact@clinicflow.space" className="hover:text-black">contact@clinicflow.space</a></li>
+              </ul>
+            </div>
+            
+            <div className="space-y-4">
+              <h3 className="text-lg font-semibold">Hours</h3>
+              <ul className="space-y-2 text-sm text-gray-600">
+                <li>Monday - Saturday</li>
+                <li>9:00 AM - 7:00 PM IST</li>
+                <li>Sunday: Closed</li>
+              </ul>
+            </div>
+            
+            <div className="space-y-4">
               <h3 className="text-lg font-semibold">Legal</h3>
               <ul className="space-y-2 text-sm text-gray-600">
                 <li><Link to="/privacy" className="hover:text-black">Privacy Policy</Link></li>
