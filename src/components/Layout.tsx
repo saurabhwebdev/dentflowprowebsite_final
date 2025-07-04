@@ -154,18 +154,26 @@ const Layout = () => {
           {/* When scrolled - condensed pill navbar */}
           {scrolled && (
             <div className="fixed top-4 right-4 md:right-8 z-50">
-              <AnimatePresence mode="wait">
+              <AnimatePresence mode="sync">
                 {pillExpanded ? (
                   <motion.div
                     key="expanded-pill"
-                    className="flex items-center p-1.5 bg-gradient-to-r from-blue-600 to-blue-800 backdrop-blur-sm rounded-full shadow-lg border border-white/10"
-                    initial={{ width: 44, opacity: 0.95 }}
+                    className="flex items-center p-1.5 bg-gradient-to-r from-black to-gray-800 backdrop-blur-sm rounded-full shadow-lg border border-white/10"
+                    initial={{ width: 48, opacity: 0.95, scale: 0.9 }}
                     animate={{ 
                       width: "auto", 
                       opacity: 1,
+                      scale: 1,
                       boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.25)" 
                     }}
-                    exit={{ width: 44, opacity: 0.95 }}
+                    exit={{ 
+                      width: 48, 
+                      opacity: 0,
+                      scale: 0.9,
+                      transition: { 
+                        duration: 0.1,
+                      }
+                    }}
                     transition={{ 
                       type: "spring",
                       stiffness: 400,
@@ -173,7 +181,6 @@ const Layout = () => {
                       mass: 1
                     }}
                     whileHover={{ scale: 1.03 }}
-                    layout
                   >
                     {/* Logo (smaller) */}
                     <Link 
@@ -254,10 +261,16 @@ const Layout = () => {
                   <motion.button
                     key="collapsed-pill"
                     onClick={togglePillNavbar}
-                    className="flex items-center justify-center h-12 w-12 rounded-full bg-gradient-to-r from-blue-600 to-blue-800 text-white shadow-lg border border-white/20"
-                    initial={{ scale: 0.8, opacity: 0, rotate: -90, y: -10 }}
-                    animate={{ scale: 1, opacity: 1, rotate: 0, y: 0 }}
-                    exit={{ scale: 0.8, opacity: 0, rotate: -90, y: -10 }}
+                    className="flex items-center justify-center h-12 w-12 rounded-full bg-gradient-to-r from-black to-gray-800 text-white shadow-lg border border-white/20"
+                    initial={{ scale: 0.8, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1, rotate: 0 }}
+                    exit={{ 
+                      scale: 1, 
+                      opacity: 0,
+                      transition: { 
+                        duration: 0.1,
+                      }
+                    }}
                     transition={{ 
                       type: "spring",
                       stiffness: 500,
