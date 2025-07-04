@@ -108,9 +108,9 @@ const Services = () => {
                   to providing the exceptional dental practice management tools that made us a leader in the field.
                 </p>
                 <div className="flex justify-center">
-                  <button className="px-6 py-3 bg-black text-white rounded-lg font-medium hover:bg-gray-800 transition-colors">
+                  <Link to="/transition" className="px-6 py-3 bg-black text-white rounded-lg font-medium hover:bg-gray-800 transition-colors">
                     Learn About Our Evolution
-                  </button>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -233,32 +233,36 @@ const Services = () => {
             Trusted by Healthcare Professionals
           </h2>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <Card key={index} className="p-6 border border-gray-200">
-                <div className="flex flex-col h-full">
-                  <div className="mb-4">
-                    <div className="flex gap-0.5 mb-4">
-                      {[...Array(5)].map((_, i) => (
-                        <svg key={i} xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="black" stroke="none">
-                          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                        </svg>
-                      ))}
+          <div className="relative overflow-hidden">
+            <div className="flex animate-scroll hover:[animation-play-state:paused]">
+              <div className="flex gap-8 min-w-full">
+                {testimonials.concat(testimonials).map((testimonial, index) => (
+                  <Card key={index} className="p-6 border border-gray-200 w-[350px] flex-shrink-0">
+                    <div className="flex flex-col h-full">
+                      <div className="mb-4">
+                        <div className="flex gap-0.5 mb-4">
+                          {[...Array(5)].map((_, i) => (
+                            <svg key={i} xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="black" stroke="none">
+                              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                            </svg>
+                          ))}
+                        </div>
+                        <p className="text-gray-600 italic mb-4">"{testimonial.quote}"</p>
+                      </div>
+                      <div className="mt-auto flex items-center gap-3">
+                        <div className="w-10 h-10 rounded-full overflow-hidden bg-gray-100">
+                          <img src={testimonial.avatar} alt={testimonial.name} className="w-full h-full object-cover grayscale" />
+                        </div>
+                        <div>
+                          <p className="font-bold">{testimonial.name}</p>
+                          <p className="text-sm text-gray-600">{testimonial.role}, {testimonial.specialty}</p>
+                        </div>
+                      </div>
                     </div>
-                    <p className="text-gray-600 italic mb-4">"{testimonial.quote}"</p>
-                  </div>
-                  <div className="mt-auto flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full overflow-hidden bg-gray-100">
-                      <img src={testimonial.avatar} alt={testimonial.name} className="w-full h-full object-cover grayscale" />
-                    </div>
-                    <div>
-                      <p className="font-bold">{testimonial.name}</p>
-                      <p className="text-sm text-gray-600">{testimonial.role}, {testimonial.specialty}</p>
-                    </div>
-                  </div>
-                </div>
-              </Card>
-            ))}
+                  </Card>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -494,6 +498,41 @@ const testimonials = [
     role: "Physician",
     specialty: "General Practice",
     avatar: "https://images.pexels.com/photos/4225880/pexels-photo-4225880.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+  },
+  {
+    quote: "The integration of AI-powered diagnostics with traditional practice management has revolutionized how we deliver care to our patients.",
+    name: "Dr. Rajesh Patel",
+    role: "Chief Medical Officer",
+    specialty: "Cardiology",
+    avatar: "https://images.pexels.com/photos/5452293/pexels-photo-5452293.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+  },
+  {
+    quote: "ClinicFlow Pro's multi-language support has helped us serve our diverse patient base more effectively. The patient portal is a game-changer.",
+    name: "Dr. Priya Sharma",
+    role: "Practice Owner",
+    specialty: "Family Medicine",
+    avatar: "https://images.pexels.com/photos/7579831/pexels-photo-7579831.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+  },
+  {
+    quote: "The specialty-specific templates and workflows have made our practice much more efficient. Our staff adapted to the system within days.",
+    name: "Dr. Arun Verma",
+    role: "Senior Consultant",
+    specialty: "Orthopedics",
+    avatar: "https://images.pexels.com/photos/5407206/pexels-photo-5407206.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+  },
+  {
+    quote: "The billing and insurance management features are outstanding. We've seen a 45% reduction in claim processing time.",
+    name: "Dr. Kavita Reddy",
+    role: "Managing Director",
+    specialty: "Multi-Specialty Hospital",
+    avatar: "https://images.pexels.com/photos/5214959/pexels-photo-5214959.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+  },
+  {
+    quote: "Excellent customer support and regular updates keep our practice running smoothly. The team is always responsive to our needs.",
+    name: "Dr. Amit Desai",
+    role: "Clinic Director",
+    specialty: "Pediatrics",
+    avatar: "https://images.pexels.com/photos/5407213/pexels-photo-5407213.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
   }
 ];
 
