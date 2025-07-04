@@ -479,56 +479,56 @@ const specialtyCards = [
 // Testimonials Data
 const testimonials = [
   {
-    quote: "Transitioning from DentFlow Pro to ClinicFlow Pro was seamless. We kept all our dental-specific features while gaining new capabilities for our expanding practice.",
+    quote: "The dental charting and treatment planning features are exceptional. After transitioning from DentFlow Pro to ClinicFlow Pro, we kept all our specialized dental tools while gaining access to broader healthcare features.",
     name: "Dr. Sarah Johnson",
     role: "Practice Owner",
     specialty: "Dental",
     avatar: "https://images.pexels.com/photos/5327585/pexels-photo-5327585.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
   },
   {
-    quote: "The unified platform has significantly improved our workflow. Managing multiple specialties under one system has reduced our administrative overhead by nearly 40%.",
+    quote: "The multi-specialty management is brilliant. We use the internal referral system daily, and the consolidated reporting gives me clear insights across all departments.",
     name: "Dr. Michael Chen",
     role: "Medical Director",
     specialty: "Multi-Specialty Clinic",
     avatar: "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
   },
   {
-    quote: "As a new practice, we needed a solution that could grow with us. ClinicFlow Pro provides exactly what we need now, with the flexibility to expand as our practice evolves.",
+    quote: "The smart scheduling and automated reminders have reduced our no-show rate by 60%. The patient portal has also greatly improved our patient engagement.",
     name: "Dr. Jessica Williams",
     role: "Physician",
     specialty: "General Practice",
     avatar: "https://images.pexels.com/photos/4225880/pexels-photo-4225880.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
   },
   {
-    quote: "The integration of AI-powered diagnostics with traditional practice management has revolutionized how we deliver care to our patients.",
+    quote: "The specialty-specific documentation templates and custom clinical workflows have transformed our cardiology practice. The equipment scheduling feature is particularly valuable for our diagnostic labs.",
     name: "Dr. Rajesh Patel",
     role: "Chief Medical Officer",
     specialty: "Cardiology",
     avatar: "https://images.pexels.com/photos/5452293/pexels-photo-5452293.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
   },
   {
-    quote: "ClinicFlow Pro's multi-language support has helped us serve our diverse patient base more effectively. The patient portal is a game-changer.",
+    quote: "The comprehensive patient records system with custom fields has been invaluable. We can track family health history and preventive care schedules efficiently.",
     name: "Dr. Priya Sharma",
     role: "Practice Owner",
     specialty: "Family Medicine",
     avatar: "https://images.pexels.com/photos/7579831/pexels-photo-7579831.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
   },
   {
-    quote: "The specialty-specific templates and workflows have made our practice much more efficient. Our staff adapted to the system within days.",
+    quote: "The insurance verification and claim processing features are outstanding. Our claim rejection rate has dropped by 45% since implementing ClinicFlow Pro's specialty-specific coding system.",
     name: "Dr. Arun Verma",
     role: "Senior Consultant",
     specialty: "Orthopedics",
     avatar: "https://images.pexels.com/photos/5407206/pexels-photo-5407206.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
   },
   {
-    quote: "The billing and insurance management features are outstanding. We've seen a 45% reduction in claim processing time.",
+    quote: "The analytics dashboard helps me track KPIs across all departments. The financial reporting and resource management features have improved our operational efficiency by 35%.",
     name: "Dr. Kavita Reddy",
     role: "Managing Director",
     specialty: "Multi-Specialty Hospital",
     avatar: "https://images.pexels.com/photos/5214959/pexels-photo-5214959.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
   },
   {
-    quote: "Excellent customer support and regular updates keep our practice running smoothly. The team is always responsive to our needs.",
+    quote: "The pediatric-specific templates and growth tracking features are perfect for our practice. The patient portal's vaccination scheduler has made immunization management seamless.",
     name: "Dr. Amit Desai",
     role: "Clinic Director",
     specialty: "Pediatrics",
