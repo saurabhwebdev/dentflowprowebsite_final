@@ -228,86 +228,172 @@ const About = () => {
           <div className="max-w-3xl mx-auto text-center mb-12">
             <h2 className="text-3xl font-bold tracking-tight mb-4">Why Choose ClinicFlow Pro?</h2>
             <p className="text-lg text-gray-600">
-              What sets us apart in healthcare practice management
+              Experience the future of healthcare practice management with our innovative solutions
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-gradient-to-br from-gray-50 to-white p-8 rounded-2xl shadow-md border border-gray-200">
-              <div className="flex items-start gap-4 mb-6">
-                <div className="w-12 h-12 rounded-lg bg-gray-100 flex items-center justify-center flex-shrink-0">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <Card className="group relative overflow-hidden hover:shadow-xl transition-all duration-300 border border-gray-200">
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 transform group-hover:scale-95 transition-transform duration-300"></div>
+              <div className="relative p-8">
+                <div className="w-12 h-12 rounded-xl bg-gray-100 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                   <Award className="h-6 w-6 text-black" />
                 </div>
-                <div>
-                  <h3 className="text-xl font-bold mb-2">Specialty-Specific Design</h3>
-                  <p className="text-gray-600">
-                    Built with features tailored to the unique needs of different healthcare specialties, including our original dental expertise.
-                  </p>
-                </div>
+                <h3 className="text-xl font-bold mb-3">Specialty-Specific Design</h3>
+                <p className="text-gray-600 mb-6">
+                  Tailored solutions for every medical specialty, from dental to cardiology. Our platform adapts to your unique workflow.
+                </p>
+                <ul className="space-y-2">
+                  <li className="flex items-center text-sm text-gray-600">
+                    <CheckCircle className="h-4 w-4 mr-2 text-green-500" />
+                    Custom templates for each specialty
+                  </li>
+                  <li className="flex items-center text-sm text-gray-600">
+                    <CheckCircle className="h-4 w-4 mr-2 text-green-500" />
+                    Specialty-specific workflows
+                  </li>
+                  <li className="flex items-center text-sm text-gray-600">
+                    <CheckCircle className="h-4 w-4 mr-2 text-green-500" />
+                    Integrated medical tools
+                  </li>
+                </ul>
               </div>
-              <img 
-                src="https://images.pexels.com/photos/3779709/pexels-photo-3779709.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" 
-                alt="Healthcare office reception" 
-                className="w-full h-48 object-cover rounded-lg grayscale"
-              />
-            </div>
+            </Card>
             
-            <div className="bg-gradient-to-br from-gray-50 to-white p-8 rounded-2xl shadow-md border border-gray-200">
-              <div className="flex items-start gap-4 mb-6">
-                <div className="w-12 h-12 rounded-lg bg-gray-100 flex items-center justify-center flex-shrink-0">
-                  <Users className="h-6 w-6 text-black" />
+            <Card className="group relative overflow-hidden hover:shadow-xl transition-all duration-300 border border-gray-200">
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 transform group-hover:scale-95 transition-transform duration-300"></div>
+              <div className="relative p-8">
+                <div className="w-12 h-12 rounded-xl bg-gray-100 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                  <Zap className="h-6 w-6 text-black" />
                 </div>
-                <div>
-                  <h3 className="text-xl font-bold mb-2">Industry Expertise</h3>
-                  <p className="text-gray-600">
-                    Our team includes healthcare professionals who understand the challenges you face every day.
-                  </p>
-                </div>
+                <h3 className="text-xl font-bold mb-3">Smart Automation</h3>
+                <p className="text-gray-600 mb-6">
+                  Streamline your practice with intelligent automation that saves time and reduces errors.
+                </p>
+                <ul className="space-y-2">
+                  <li className="flex items-center text-sm text-gray-600">
+                    <CheckCircle className="h-4 w-4 mr-2 text-green-500" />
+                    Automated appointment reminders
+                  </li>
+                  <li className="flex items-center text-sm text-gray-600">
+                    <CheckCircle className="h-4 w-4 mr-2 text-green-500" />
+                    Smart scheduling system
+                  </li>
+                  <li className="flex items-center text-sm text-gray-600">
+                    <CheckCircle className="h-4 w-4 mr-2 text-green-500" />
+                    Billing automation
+                  </li>
+                </ul>
               </div>
-              <img 
-                src="https://images.pexels.com/photos/5998293/pexels-photo-5998293.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" 
-                alt="Team working together" 
-                className="w-full h-48 object-cover rounded-lg grayscale"
-              />
-            </div>
+            </Card>
             
-            <div className="bg-gradient-to-br from-gray-50 to-white p-8 rounded-2xl shadow-md border border-gray-200">
-              <div className="flex items-start gap-4 mb-6">
-                <div className="w-12 h-12 rounded-lg bg-gray-100 flex items-center justify-center flex-shrink-0">
-                  <Lightbulb className="h-6 w-6 text-black" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold mb-2">Continuous Innovation</h3>
-                  <p className="text-gray-600">
-                    Regular updates and new features based on customer feedback and industry trends across healthcare specialties.
-                  </p>
-                </div>
-              </div>
-              <img 
-                src="https://images.pexels.com/photos/3912361/pexels-photo-3912361.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" 
-                alt="Innovative healthcare tech" 
-                className="w-full h-48 object-cover rounded-lg grayscale"
-              />
-            </div>
-            
-            <div className="bg-gradient-to-br from-gray-50 to-white p-8 rounded-2xl shadow-md border border-gray-200">
-              <div className="flex items-start gap-4 mb-6">
-                <div className="w-12 h-12 rounded-lg bg-gray-100 flex items-center justify-center flex-shrink-0">
+            <Card className="group relative overflow-hidden hover:shadow-xl transition-all duration-300 border border-gray-200">
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 transform group-hover:scale-95 transition-transform duration-300"></div>
+              <div className="relative p-8">
+                <div className="w-12 h-12 rounded-xl bg-gray-100 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                   <Shield className="h-6 w-6 text-black" />
                 </div>
-                <div>
-                  <h3 className="text-xl font-bold mb-2">Dedicated Support</h3>
-                  <p className="text-gray-600">
-                    Responsive customer service from team members who understand both healthcare and technology.
-                  </p>
-                </div>
+                <h3 className="text-xl font-bold mb-3">Enterprise Security</h3>
+                <p className="text-gray-600 mb-6">
+                  Bank-grade security and HIPAA compliance to protect your practice and patient data.
+                </p>
+                <ul className="space-y-2">
+                  <li className="flex items-center text-sm text-gray-600">
+                    <CheckCircle className="h-4 w-4 mr-2 text-green-500" />
+                    HIPAA compliant storage
+                  </li>
+                  <li className="flex items-center text-sm text-gray-600">
+                    <CheckCircle className="h-4 w-4 mr-2 text-green-500" />
+                    End-to-end encryption
+                  </li>
+                  <li className="flex items-center text-sm text-gray-600">
+                    <CheckCircle className="h-4 w-4 mr-2 text-green-500" />
+                    Regular security audits
+                  </li>
+                </ul>
               </div>
-              <img 
-                src="https://images.pexels.com/photos/7579831/pexels-photo-7579831.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" 
-                alt="Customer support team" 
-                className="w-full h-48 object-cover rounded-lg grayscale"
-              />
-            </div>
+            </Card>
+            
+            <Card className="group relative overflow-hidden hover:shadow-xl transition-all duration-300 border border-gray-200">
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 transform group-hover:scale-95 transition-transform duration-300"></div>
+              <div className="relative p-8">
+                <div className="w-12 h-12 rounded-xl bg-gray-100 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                  <Users className="h-6 w-6 text-black" />
+                </div>
+                <h3 className="text-xl font-bold mb-3">24/7 Expert Support</h3>
+                <p className="text-gray-600 mb-6">
+                  Round-the-clock support from our team of healthcare technology experts.
+                </p>
+                <ul className="space-y-2">
+                  <li className="flex items-center text-sm text-gray-600">
+                    <CheckCircle className="h-4 w-4 mr-2 text-green-500" />
+                    Live chat support
+                  </li>
+                  <li className="flex items-center text-sm text-gray-600">
+                    <CheckCircle className="h-4 w-4 mr-2 text-green-500" />
+                    Dedicated success manager
+                  </li>
+                  <li className="flex items-center text-sm text-gray-600">
+                    <CheckCircle className="h-4 w-4 mr-2 text-green-500" />
+                    Training resources
+                  </li>
+                </ul>
+              </div>
+            </Card>
+            
+            <Card className="group relative overflow-hidden hover:shadow-xl transition-all duration-300 border border-gray-200">
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 transform group-hover:scale-95 transition-transform duration-300"></div>
+              <div className="relative p-8">
+                <div className="w-12 h-12 rounded-xl bg-gray-100 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                  <Lightbulb className="h-6 w-6 text-black" />
+                </div>
+                <h3 className="text-xl font-bold mb-3">Continuous Innovation</h3>
+                <p className="text-gray-600 mb-6">
+                  Stay ahead with regular updates and cutting-edge features based on user feedback.
+                </p>
+                <ul className="space-y-2">
+                  <li className="flex items-center text-sm text-gray-600">
+                    <CheckCircle className="h-4 w-4 mr-2 text-green-500" />
+                    Monthly feature updates
+                  </li>
+                  <li className="flex items-center text-sm text-gray-600">
+                    <CheckCircle className="h-4 w-4 mr-2 text-green-500" />
+                    AI-powered insights
+                  </li>
+                  <li className="flex items-center text-sm text-gray-600">
+                    <CheckCircle className="h-4 w-4 mr-2 text-green-500" />
+                    User-driven development
+                  </li>
+                </ul>
+              </div>
+            </Card>
+            
+            <Card className="group relative overflow-hidden hover:shadow-xl transition-all duration-300 border border-gray-200">
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 transform group-hover:scale-95 transition-transform duration-300"></div>
+              <div className="relative p-8">
+                <div className="w-12 h-12 rounded-xl bg-gray-100 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                  <Clock className="h-6 w-6 text-black" />
+                </div>
+                <h3 className="text-xl font-bold mb-3">Rapid Implementation</h3>
+                <p className="text-gray-600 mb-6">
+                  Get up and running quickly with our streamlined onboarding process.
+                </p>
+                <ul className="space-y-2">
+                  <li className="flex items-center text-sm text-gray-600">
+                    <CheckCircle className="h-4 w-4 mr-2 text-green-500" />
+                    Quick setup process
+                  </li>
+                  <li className="flex items-center text-sm text-gray-600">
+                    <CheckCircle className="h-4 w-4 mr-2 text-green-500" />
+                    Data migration support
+                  </li>
+                  <li className="flex items-center text-sm text-gray-600">
+                    <CheckCircle className="h-4 w-4 mr-2 text-green-500" />
+                    Staff training included
+                  </li>
+                </ul>
+              </div>
+            </Card>
           </div>
         </div>
 
