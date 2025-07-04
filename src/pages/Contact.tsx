@@ -4,12 +4,14 @@ import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { Mail, Phone, MapPin, Clock, MessageSquare, Loader2, Building2, ArrowRight } from 'lucide-react';
+import { Mail, Phone, MapPin, Clock, MessageSquare, Loader2, Building2, ArrowRight, ChevronUp } from 'lucide-react';
 import { sendToTelegram } from '@/lib/telegram-service';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { SuccessModal, useSuccessModal } from '@/components/ui/success-modal';
 import { Helmet } from 'react-helmet-async';
 import { generateBreadcrumbSchema } from '@/lib/utils';
+import { cn } from '@/lib/utils';
+import { Separator } from '@/components/ui/separator';
 
 const Contact = () => {
   const breadcrumbs = [
@@ -33,6 +35,11 @@ const Contact = () => {
   const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
   const { isOpen: isSuccessModalOpen, openModal: openSuccessModal, closeModal: closeSuccessModal } = useSuccessModal();
+  const [activeFaq, setActiveFaq] = useState<number | null>(null);
+
+  const toggleFaq = (index: number) => {
+    setActiveFaq(activeFaq === index ? null : index);
+  };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -83,35 +90,35 @@ const Contact = () => {
         title="Contact Us" 
         description="We're here to help and answer any questions you might have"
         breadcrumbs={breadcrumbs}
-        className="bg-gradient-to-r from-blue-500/10 to-purple-500/10"
+        className="bg-gradient-to-r from-gray-100 to-gray-200"
       />
       
-      <div className="container max-w-7xl mx-auto px-4 py-16 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Contact Form */}
-          <div>
-            <h2 className="text-3xl font-bold tracking-tight mb-4">Get in Touch</h2>
-            <div className="flex items-center gap-2 mb-6">
-              <div className="h-1 w-12 bg-blue-600 rounded"></div>
-              <p className="text-lg text-gray-600">
+      <div className="container max-w-6xl mx-auto px-4 py-12 sm:px-6 lg:px-8">
+        {/* Main Content */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16">
+          {/* Contact Form Section */}
+          <div className="lg:col-span-7 space-y-6">
+            <div className="mb-8">
+              <h2 className="text-3xl font-bold tracking-tight mb-2">Get in Touch</h2>
+              <Separator className="w-16 h-1 bg-black mb-4" />
+              <p className="text-gray-600">
                 Have questions about ClinicFlow? Fill out the form below and one of our team members 
-                will get back to you as soon as possible.
+                will get back to you promptly.
               </p>
             </div>
             
             {formStatus === 'error' && (
-              <Alert className="mb-6 bg-red-50 border-red-200">
-                <AlertTitle className="text-red-800">Error</AlertTitle>
-                <AlertDescription className="text-red-700">
+              <Alert className="mb-6 bg-gray-100 border-gray-300">
+                <AlertTitle className="text-gray-900">Error</AlertTitle>
+                <AlertDescription className="text-gray-700">
                   {errorMessage}
                 </AlertDescription>
               </Alert>
             )}
             
-            <Card className="group relative overflow-hidden transition-all duration-300">
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 transform group-hover:scale-95 transition-transform duration-300"></div>
-              <form onSubmit={handleSubmit} className="relative space-y-6 p-6">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <Card className="border-0 shadow-lg">
+              <form onSubmit={handleSubmit} className="space-y-6 p-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="firstName" className="block text-sm font-medium text-gray-700 mb-1">
                       First Name
@@ -123,7 +130,7 @@ const Contact = () => {
                       required 
                       value={formData.firstName}
                       onChange={handleInputChange}
-                      className="bg-white/80"
+                      className="bg-gray-50 border-gray-300 focus:border-gray-500 focus:ring-gray-500"
                     />
                   </div>
                   <div>
@@ -137,40 +144,42 @@ const Contact = () => {
                       required 
                       value={formData.lastName}
                       onChange={handleInputChange}
-                      className="bg-white/80"
+                      className="bg-gray-50 border-gray-300 focus:border-gray-500 focus:ring-gray-500"
                     />
                   </div>
                 </div>
                 
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                    Email Address
-                  </label>
-                  <Input 
-                    id="email" 
-                    name="email" 
-                    type="email" 
-                    placeholder="john.doe@example.com" 
-                    required 
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    className="bg-white/80"
-                  />
-                </div>
-                
-                <div>
-                  <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
-                    Phone Number
-                  </label>
-                  <Input 
-                    id="phone" 
-                    name="phone" 
-                    type="tel" 
-                    placeholder="(123) 456-7890" 
-                    value={formData.phone}
-                    onChange={handleInputChange}
-                    className="bg-white/80"
-                  />
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                      Email Address
+                    </label>
+                    <Input 
+                      id="email" 
+                      name="email" 
+                      type="email" 
+                      placeholder="john.doe@example.com" 
+                      required 
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      className="bg-gray-50 border-gray-300 focus:border-gray-500 focus:ring-gray-500"
+                    />
+                  </div>
+                  
+                  <div>
+                    <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
+                      Phone Number
+                    </label>
+                    <Input 
+                      id="phone" 
+                      name="phone" 
+                      type="tel" 
+                      placeholder="(123) 456-7890" 
+                      value={formData.phone}
+                      onChange={handleInputChange}
+                      className="bg-gray-50 border-gray-300 focus:border-gray-500 focus:ring-gray-500"
+                    />
+                  </div>
                 </div>
                 
                 <div>
@@ -184,7 +193,7 @@ const Contact = () => {
                     required 
                     value={formData.subject}
                     onChange={handleInputChange}
-                    className="bg-white/80"
+                    className="bg-gray-50 border-gray-300 focus:border-gray-500 focus:ring-gray-500"
                   />
                 </div>
                 
@@ -200,13 +209,13 @@ const Contact = () => {
                     required 
                     value={formData.message}
                     onChange={handleInputChange}
-                    className="bg-white/80"
+                    className="bg-gray-50 border-gray-300 focus:border-gray-500 focus:ring-gray-500"
                   />
                 </div>
                 
                 <Button 
                   type="submit" 
-                  className="w-full bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 group"
+                  className="w-full bg-black hover:bg-gray-800 text-white group"
                   disabled={formStatus === 'submitting'}
                 >
                   {formStatus === 'submitting' ? (
@@ -225,42 +234,39 @@ const Contact = () => {
             </Card>
           </div>
           
-          {/* Contact Information */}
-          <div>
-            <h2 className="text-3xl font-bold tracking-tight mb-4">Contact Information</h2>
-            <div className="flex items-center gap-2 mb-6">
-              <div className="h-1 w-12 bg-blue-600 rounded"></div>
-              <p className="text-lg text-gray-600">
-                Prefer to reach out directly? Here are all the ways you can contact us.
+          {/* Contact Information Section */}
+          <div className="lg:col-span-5">
+            <div className="mb-8">
+              <h2 className="text-3xl font-bold tracking-tight mb-2">Contact Info</h2>
+              <Separator className="w-16 h-1 bg-black mb-4" />
+              <p className="text-gray-600">
+                Prefer to reach out directly? Here's how to connect with us.
               </p>
             </div>
             
-            <Card className="group relative overflow-hidden transition-all duration-300 mb-10 hover:shadow-lg">
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 transform group-hover:scale-95 transition-transform duration-300"></div>
-              <div className="relative p-6 space-y-6">
+            <Card className="border-0 shadow-lg mb-8 overflow-hidden">
+              <div className="px-6 py-8 space-y-6 bg-gray-50">
                 {contactInfo.map((item, index) => (
-                  <div key={index} className="flex items-start gap-4 group/item hover:bg-gray-50 p-2 rounded-lg transition-colors">
+                  <div key={index} className="flex items-start gap-4">
                     <div className="flex-shrink-0">
-                      <div className="h-10 w-10 rounded-lg bg-blue-100 flex items-center justify-center group-hover/item:scale-110 transition-transform">
-                        {item.icon}
+                      <div className="h-10 w-10 rounded-full bg-black/10 flex items-center justify-center">
+                        {React.cloneElement(item.icon, { className: "h-5 w-5 text-black" })}
                       </div>
                     </div>
                     <div>
-                      <h3 className="text-lg font-bold mb-1">{item.title}</h3>
-                      <p className="text-gray-600">{item.content}</p>
+                      <h3 className="text-lg font-semibold mb-1">{item.title}</h3>
+                      <p className="text-gray-700">{item.content}</p>
                       {item.extra && <p className="text-sm text-gray-500 mt-1">{item.extra}</p>}
                     </div>
                   </div>
                 ))}
               </div>
-            </Card>
-            
-            {/* Office Hours */}
-            <Card className="group relative overflow-hidden transition-all duration-300 mb-10 hover:shadow-lg">
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 transform group-hover:scale-95 transition-transform duration-300"></div>
-              <div className="relative p-6">
-                <h3 className="text-lg font-bold mb-4 flex items-center gap-2 border-b pb-2">
-                  <Clock className="h-5 w-5 text-blue-600" />
+              
+              <Separator className="my-0" />
+              
+              <div className="px-6 py-8">
+                <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
+                  <Clock className="h-5 w-5 text-gray-700" />
                   Office Hours
                 </h3>
                 <div className="space-y-2">
@@ -268,83 +274,88 @@ const Contact = () => {
                     <div key={index} className="flex justify-between items-center py-2 border-b border-gray-100 last:border-0">
                       <span className="font-medium flex items-center gap-2">
                         {item.days === "Sunday" ? (
-                          <span className="h-2 w-2 bg-red-500 rounded-full"></span>
+                          <span className="h-2 w-2 bg-gray-400 rounded-full"></span>
                         ) : (
-                          <span className="h-2 w-2 bg-green-500 rounded-full"></span>
+                          <span className="h-2 w-2 bg-black rounded-full"></span>
                         )}
                         {item.days}
                       </span>
-                      <span className="text-gray-600 bg-gray-50 px-3 py-1 rounded-full text-sm">{item.hours}</span>
+                      <span className="text-gray-600 bg-gray-100 px-3 py-1 rounded-full text-sm">{item.hours}</span>
                     </div>
                   ))}
                 </div>
               </div>
             </Card>
             
-            {/* FAQ Section */}
-            <div>
-              <h3 className="text-xl font-bold mb-4 flex items-center gap-2 border-b pb-2">
-                <MessageSquare className="h-5 w-5 text-blue-600" />
-                Frequently Asked Questions
-              </h3>
-              <div className="space-y-4">
-                {faqs.map((faq, index) => (
-                  <details key={index} className="group bg-white border border-gray-200 rounded-lg transition-all duration-200 hover:border-blue-200 hover:shadow-sm">
-                    <summary className="flex justify-between items-center font-medium cursor-pointer list-none p-4 bg-gradient-to-r from-transparent to-gray-50 group-open:to-blue-50">
-                      <span className="flex items-center gap-2">
-                        <span className="h-2 w-2 bg-blue-500 rounded-full"></span>
-                        {faq.question}
-                      </span>
-                      <span className="transition group-open:rotate-180">
-                        <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24">
-                          <path d="M6 9l6 6 6-6"></path>
-                        </svg>
-                      </span>
-                    </summary>
-                    <div className="px-4 pb-4">
-                      <p className="text-gray-600">{faq.answer}</p>
+            {/* FAQ Accordion */}
+            <Card className="border-0 shadow-lg overflow-hidden">
+              <div className="px-6 py-6">
+                <h3 className="text-xl font-semibold mb-4 flex items-center gap-2">
+                  <MessageSquare className="h-5 w-5 text-gray-700" />
+                  Frequently Asked Questions
+                </h3>
+                
+                <div className="divide-y divide-gray-200">
+                  {faqs.map((faq, index) => (
+                    <div key={index} className="py-4">
+                      <button
+                        onClick={() => toggleFaq(index)}
+                        className="flex justify-between items-center w-full text-left font-medium focus:outline-none"
+                      >
+                        <span className="text-gray-900">{faq.question}</span>
+                        <ChevronUp 
+                          className={cn(
+                            "h-5 w-5 text-gray-500 transition-transform", 
+                            activeFaq === index ? "transform rotate-0" : "transform rotate-180"
+                          )}
+                        />
+                      </button>
+                      {activeFaq === index && (
+                        <div className="mt-2 text-gray-600 pl-0">
+                          <p>{faq.answer}</p>
+                        </div>
+                      )}
                     </div>
-                  </details>
-                ))}
+                  ))}
+                </div>
               </div>
-            </div>
+            </Card>
           </div>
         </div>
         
         {/* Map Section */}
         <div className="mt-16">
-          <Card className="group relative overflow-hidden transition-all duration-300">
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 transform group-hover:scale-95 transition-transform duration-300"></div>
-            <div className="relative">
-              <div className="p-6 pb-0 flex items-center gap-2">
-                <MapPin className="h-6 w-6 text-blue-600" />
-                <h2 className="text-2xl font-bold tracking-tight">Visit Our Office in Bangalore</h2>
+          <Card className="border-0 shadow-lg overflow-hidden">
+            <div className="p-6">
+              <div className="flex items-center gap-2 mb-4">
+                <MapPin className="h-5 w-5 text-gray-700" />
+                <h2 className="text-2xl font-bold">Visit Our Office in Bangalore</h2>
               </div>
-              <div className="p-6">
-                <div className="h-96 rounded-xl overflow-hidden border border-gray-200 shadow-sm">
-                  <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d124425.97709531436!2d77.5159352151494!3d12.972074638522408!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae16619c45f77d%3A0x65b8ba3513a51219!2sIndiranagar%2C%20Bengaluru%2C%20Karnataka%2C%20India!5e0!3m2!1sen!2sus!4v1716927978126!5m2!1sen!2sus" 
-                    width="100%" 
-                    height="100%" 
-                    style={{ border: 0 }} 
-                    allowFullScreen 
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                    title="Map of our office in Bangalore"
-                    className="grayscale hover:grayscale-0 transition-all duration-700"
-                  ></iframe>
-                </div>
-                <div className="text-center mt-4 flex justify-center items-center">
-                  <a 
-                    href="https://goo.gl/maps/iXRnP96JgHqZE9WQ8" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="text-sm bg-blue-600 text-white hover:bg-blue-700 px-4 py-2 rounded-full inline-flex items-center gap-1 group transition-all duration-300"
-                  >
-                    Get Directions
-                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                  </a>
-                </div>
+              
+              <div className="h-96 rounded-lg overflow-hidden">
+                <iframe 
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d124425.97709531436!2d77.5159352151494!3d12.972074638522408!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae16619c45f77d%3A0x65b8ba3513a51219!2sIndiranagar%2C%20Bengaluru%2C%20Karnataka%2C%20India!5e0!3m2!1sen!2sus!4v1716927978126!5m2!1sen!2sus" 
+                  width="100%" 
+                  height="100%" 
+                  style={{ border: 0 }} 
+                  allowFullScreen 
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Map of our office in Bangalore"
+                  className="grayscale hover:grayscale-0 transition-all duration-700"
+                ></iframe>
+              </div>
+              
+              <div className="mt-4 flex justify-end">
+                <a 
+                  href="https://goo.gl/maps/iXRnP96JgHqZE9WQ8" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-sm bg-black text-white hover:bg-gray-800 px-4 py-2 rounded inline-flex items-center gap-1 transition-all duration-300"
+                >
+                  Get Directions
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </a>
               </div>
             </div>
           </Card>
@@ -365,25 +376,25 @@ const Contact = () => {
 // Contact Information Data
 const contactInfo = [
   {
-    icon: <Building2 className="h-5 w-5 text-blue-600" />,
+    icon: <Building2 className="h-5 w-5" />,
     title: "Office Address",
     content: "100 Feet Road, Indiranagar, Bengaluru, Karnataka 560038, India",
     extra: "Visit us during business hours"
   },
   {
-    icon: <Phone className="h-5 w-5 text-blue-600" />,
+    icon: <Phone className="h-5 w-5" />,
     title: "Phone",
     content: "+91-8087098711",
     extra: "Monday to Saturday, 9:00 AM to 7:00 PM IST"
   },
   {
-    icon: <Mail className="h-5 w-5 text-blue-600" />,
+    icon: <Mail className="h-5 w-5" />,
     title: "Email",
     content: "contact@clinicflow.space",
     extra: "We'll respond as soon as possible"
   },
   {
-    icon: <MessageSquare className="h-5 w-5 text-blue-600" />,
+    icon: <MessageSquare className="h-5 w-5" />,
     title: "Live Chat",
     content: "Available on our website",
     extra: "Chat with our support team in real-time"
