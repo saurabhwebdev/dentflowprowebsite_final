@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { PageHeader } from '@/components/ui/page-header';
 import { Card } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Check, Users, Calendar, FileText, LineChart, Settings, Shield, Building, HeartPulse, Stethoscope, Syringe } from 'lucide-react';
+import { Check, Users, Calendar, FileText, LineChart, Settings, Shield, Building, HeartPulse, Stethoscope, Syringe, ArrowRight, ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { generateBreadcrumbSchema } from '@/lib/utils';
+import { cn } from '@/lib/utils';
+import { Separator } from '@/components/ui/separator';
 
 const Services = () => {
   const breadcrumbs = [
@@ -16,6 +18,8 @@ const Services = () => {
   const breadcrumbSchema = generateBreadcrumbSchema(
     breadcrumbs.map(item => ({ name: item.name, url: `https://clinicflow.space${item.href}` }))
   );
+
+  const [activeTab, setActiveTab] = useState('overview');
 
   return (
     <div className="bg-white min-h-screen">
@@ -30,116 +34,156 @@ const Services = () => {
       </Helmet>
       
       <PageHeader 
-        title="ClinicFlow Services" 
-        description="A unified platform for healthcare practices of all specialties, from dental to general medicine and beyond."
+        title="Our Services" 
+        description="A unified platform for healthcare practices of all specialties"
         breadcrumbs={breadcrumbs}
-        className="bg-gradient-to-r from-blue-500/10 to-purple-500/10"
+        className="bg-gradient-to-r from-gray-100 to-gray-200"
       />
       
-      <div className="container max-w-7xl mx-auto px-4 py-16 sm:px-6 lg:px-8">
-        <Tabs defaultValue="overview" className="w-full">
-          <TabsList className="w-full max-w-lg mx-auto grid grid-cols-3 mb-12">
-            <TabsTrigger value="overview">Overview</TabsTrigger>
-            <TabsTrigger value="features">Core Features</TabsTrigger>
-            <TabsTrigger value="specialties">Specialties</TabsTrigger>
-          </TabsList>
+      <div className="container max-w-6xl mx-auto px-4 py-12 sm:px-6 lg:px-8">
+        <Tabs 
+          defaultValue="overview" 
+          className="w-full"
+          value={activeTab}
+          onValueChange={setActiveTab}
+        >
+          <div className="mb-12">
+            <h2 className="text-3xl font-bold tracking-tight mb-2 text-center">ClinicFlow Services</h2>
+            <Separator className="w-16 h-1 bg-black mx-auto mb-8" />
+            <TabsList className="w-full max-w-lg mx-auto grid grid-cols-3 bg-gray-100">
+              <TabsTrigger 
+                value="overview"
+                className={cn(
+                  "data-[state=active]:bg-black data-[state=active]:text-white"
+                )}
+              >
+                Overview
+              </TabsTrigger>
+              <TabsTrigger 
+                value="features"
+                className={cn(
+                  "data-[state=active]:bg-black data-[state=active]:text-white"
+                )}
+              >
+                Core Features
+              </TabsTrigger>
+              <TabsTrigger 
+                value="specialties"
+                className={cn(
+                  "data-[state=active]:bg-black data-[state=active]:text-white"
+                )}
+              >
+                Specialties
+              </TabsTrigger>
+            </TabsList>
+          </div>
           
           {/* Overview Tab */}
-          <TabsContent value="overview">
-            <div className="max-w-3xl mx-auto mb-16 text-center">
-              <h2 className="text-3xl font-bold tracking-tight mb-4">
-                Streamlined Practice Management
-              </h2>
+          <TabsContent value="overview" className="space-y-12">
+            <div className="max-w-3xl mx-auto text-center mb-12">
               <p className="text-lg text-gray-600">
                 ClinicFlow Pro provides comprehensive solutions for healthcare practices of all specialties. 
                 Our platform combines intuitive design with powerful features to help you deliver exceptional patient care.
               </p>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {serviceCards.map((card, index) => (
-                <Card key={index} className="p-6 border border-gray-200 hover:border-black/30 transition-all hover:shadow-md">
-                  <div className="mb-4 h-12 w-12 rounded-full bg-gray-100 flex items-center justify-center">
-                    {card.icon}
+                <Card key={index} className="border-0 shadow-lg hover:shadow-xl transition-shadow duration-300">
+                  <div className="p-6 space-y-4">
+                    <div className="h-12 w-12 rounded-full bg-gray-100 flex items-center justify-center">
+                      {card.icon}
+                    </div>
+                    <h3 className="text-xl font-bold">{card.title}</h3>
+                    <p className="text-gray-600">{card.description}</p>
                   </div>
-                  <h3 className="text-xl font-bold mb-2">{card.title}</h3>
-                  <p className="text-gray-600">{card.description}</p>
                 </Card>
               ))}
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
-              <div className="relative">
-                <div className="absolute -inset-4 bg-gray-200/30 rounded-2xl transform rotate-2"></div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+              <div className="relative order-2 md:order-1">
+                <div className="absolute -inset-4 bg-gray-200/50 rounded-2xl transform -rotate-1"></div>
                 <img 
                   src="https://images.pexels.com/photos/7579831/pexels-photo-7579831.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" 
                   alt="Healthcare professionals" 
-                  className="relative rounded-xl shadow-lg w-full h-[350px] object-cover grayscale"
+                  className="relative rounded-xl shadow-lg w-full h-[400px] object-cover grayscale"
                 />
               </div>
-              <div>
-                <h3 className="text-2xl font-bold mb-6">Why Choose ClinicFlow Pro?</h3>
+              <div className="order-1 md:order-2">
+                <h3 className="text-2xl font-bold mb-4">Why Choose ClinicFlow Pro?</h3>
+                <Separator className="w-16 h-1 bg-black mb-6" />
                 <div className="space-y-4">
                   {benefits.map((benefit, index) => (
-                    <div key={index} className="flex items-start gap-3">
+                    <div key={index} className="flex items-start gap-3 p-3 rounded-lg hover:bg-gray-50 transition-colors">
                       <div className="flex-shrink-0 mt-1">
-                        <Check className="h-5 w-5 text-black" />
+                        <div className="h-6 w-6 rounded-full bg-black/10 flex items-center justify-center">
+                          <Check className="h-4 w-4 text-black" />
+                        </div>
                       </div>
                       <div>
-                        <h4 className="font-medium">{benefit.title}</h4>
+                        <h4 className="font-semibold">{benefit.title}</h4>
                         <p className="text-sm text-gray-600">{benefit.description}</p>
                       </div>
                     </div>
                   ))}
                 </div>
                 <div className="mt-8">
-                  <button className="px-6 py-3 bg-black text-white rounded-lg font-medium hover:bg-gray-800 transition-colors">
+                  <Link to="/contact" className="px-6 py-3 bg-black text-white rounded-lg font-medium hover:bg-gray-800 transition-colors inline-flex items-center group">
                     Schedule a Demo
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-gray-50 rounded-xl p-8 border border-gray-200">
-              <div className="max-w-3xl mx-auto text-center">
-                <h3 className="text-2xl font-bold mb-6">From DentFlow Pro to ClinicFlow Pro</h3>
-                <p className="text-gray-600 mb-6">
-                  While we've expanded our platform to serve healthcare practices of all specialties, we remain committed 
-                  to providing the exceptional dental practice management tools that made us a leader in the field.
-                </p>
-                <div className="flex justify-center">
-                  <Link to="/transition" className="px-6 py-3 bg-black text-white rounded-lg font-medium hover:bg-gray-800 transition-colors">
-                    Learn About Our Evolution
+                    <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </Link>
                 </div>
               </div>
             </div>
+
+            <Card className="border-0 shadow-lg overflow-hidden">
+              <div className="p-8 bg-gray-50">
+                <div className="max-w-3xl mx-auto text-center">
+                  <h3 className="text-2xl font-bold mb-4">From DentFlow Pro to ClinicFlow Pro</h3>
+                  <Separator className="w-16 h-1 bg-black mx-auto mb-6" />
+                  <p className="text-gray-600 mb-6">
+                    While we've expanded our platform to serve healthcare practices of all specialties, we remain committed 
+                    to providing the exceptional dental practice management tools that made us a leader in the field.
+                  </p>
+                  <div className="flex justify-center">
+                    <Link to="/transition" className="px-6 py-3 bg-black text-white rounded-lg font-medium hover:bg-gray-800 transition-colors inline-flex items-center group">
+                      Learn About Our Evolution
+                      <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </Card>
           </TabsContent>
           
           {/* Features Tab */}
-          <TabsContent value="features">
-            <div className="max-w-3xl mx-auto mb-12">
-              <h2 className="text-3xl font-bold tracking-tight mb-4 text-center">
-                Powerful Features for Modern Healthcare Practices
-              </h2>
-              <p className="text-center text-lg text-gray-600 mb-12">
+          <TabsContent value="features" className="space-y-12">
+            <div className="max-w-3xl mx-auto text-center mb-8">
+              <p className="text-lg text-gray-600">
                 Our comprehensive suite of tools adapts to your specific needs, regardless of your specialty.
               </p>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16">
-                {featureGroups.map((group, index) => (
-                  <div key={index} className="relative">
-                    <div className="absolute -top-10 left-0 w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center">
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16">
+              {featureGroups.map((group, index) => (
+                <Card key={index} className="border-0 shadow-lg">
+                  <div className="p-6 relative">
+                    <div className="absolute -top-8 left-6 w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center shadow-md">
                       {group.icon}
                     </div>
-                    <div className="pt-8">
-                      <h3 className="text-xl font-bold mb-4 border-b pb-2 border-gray-200">
+                    <div className="pt-10">
+                      <h3 className="text-xl font-bold mb-6 pb-2 border-b border-gray-200">
                         {group.title}
                       </h3>
                       <div className="space-y-4">
                         {group.features.map((feature, idx) => (
-                          <div key={idx} className="flex items-start gap-3">
-                            <Check className="h-5 w-5 text-black flex-shrink-0 mt-0.5" />
+                          <div key={idx} className="flex items-start gap-3 p-2 rounded-lg hover:bg-gray-50 transition-colors">
+                            <div className="flex-shrink-0 mt-0.5">
+                              <div className="h-5 w-5 rounded-full bg-black/10 flex items-center justify-center">
+                                <Check className="h-3 w-3 text-black" />
+                              </div>
+                            </div>
                             <div>
                               <h4 className="font-semibold">{feature.title}</h4>
                               <p className="text-gray-600 text-sm">{feature.description}</p>
@@ -149,120 +193,139 @@ const Services = () => {
                       </div>
                     </div>
                   </div>
-                ))}
-              </div>
+                </Card>
+              ))}
             </div>
 
-            <div className="relative rounded-2xl overflow-hidden mt-16">
-              <div className="absolute inset-0">
+            <Card className="border-0 shadow-lg overflow-hidden">
+              <div className="relative">
                 <img 
                   src="https://images.pexels.com/photos/7743498/pexels-photo-7743498.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" 
                   alt="Healthcare professionals with technology" 
-                  className="w-full h-full object-cover grayscale"
+                  className="w-full h-[300px] object-cover grayscale"
                 />
                 <div className="absolute inset-0 bg-black/70"></div>
-              </div>
-              <div className="relative py-12 px-8 text-center text-white">
-                <h2 className="text-3xl font-bold mb-4">Ready to Transform Your Practice?</h2>
-                <p className="text-lg mb-8 max-w-2xl mx-auto">
-                  Join thousands of healthcare professionals who've elevated their practice management with ClinicFlow Pro.
-                </p>
-                <div className="flex flex-wrap gap-4 justify-center">
-                  <a href="https://clinicflow-roan.vercel.app/signin" target="_blank" rel="noopener noreferrer" className="px-6 py-3 bg-white text-black rounded-lg font-medium hover:bg-gray-100 transition-colors">
-                    Get Started
-                  </a>
-                  <Link to="/contact" className="px-6 py-3 border border-white rounded-lg font-medium hover:bg-white/10 transition-colors">
-                    Contact Sales
-                  </Link>
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="text-center text-white max-w-2xl px-6">
+                    <h2 className="text-3xl font-bold mb-4">Ready to Transform Your Practice?</h2>
+                    <p className="text-lg mb-8">
+                      Join thousands of healthcare professionals who've elevated their practice management with ClinicFlow Pro.
+                    </p>
+                    <div className="flex flex-wrap gap-4 justify-center">
+                      <a href="https://clinicflow-roan.vercel.app/signin" target="_blank" rel="noopener noreferrer" className="px-6 py-3 bg-white text-black rounded-lg font-medium hover:bg-gray-100 transition-colors inline-flex items-center group">
+                        Get Started
+                        <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                      </a>
+                      <Link to="/contact" className="px-6 py-3 border border-white rounded-lg font-medium hover:bg-white/10 transition-colors">
+                        Contact Sales
+                      </Link>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
+            </Card>
           </TabsContent>
           
           {/* Specialties Tab */}
-          <TabsContent value="specialties">
-            <div className="max-w-3xl mx-auto">
-              <h2 className="text-3xl font-bold tracking-tight mb-4 text-center">
-                Solutions for Every Specialty
-              </h2>
-              <p className="text-center text-lg text-gray-600 mb-12">
+          <TabsContent value="specialties" className="space-y-12">
+            <div className="max-w-3xl mx-auto text-center mb-8">
+              <p className="text-lg text-gray-600">
                 ClinicFlow Pro adapts to the unique needs of different healthcare specialties.
               </p>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-                {specialtyCards.map((specialty, index) => (
-                  <Card key={index} className="p-6 border border-gray-200 hover:border-black/30 transition-all hover:shadow-md">
-                    <div className="flex items-start gap-4">
-                      <div className="w-12 h-12 rounded-lg bg-gray-100 flex items-center justify-center flex-shrink-0">
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {specialtyCards.map((specialty, index) => (
+                <Card key={index} className="border-0 shadow-lg hover:shadow-xl transition-shadow duration-300">
+                  <div className="p-6">
+                    <div className="flex items-start gap-4 mb-6">
+                      <div className="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center flex-shrink-0">
                         {specialty.icon}
                       </div>
                       <div>
-                        <h3 className="text-xl font-bold mb-2">{specialty.title}</h3>
-                        <p className="text-gray-600 mb-4">{specialty.description}</p>
-                        <ul className="space-y-1 mt-4">
-                          {specialty.features.map((feature, idx) => (
-                            <li key={idx} className="flex items-start gap-2">
-                              <Check className="h-4 w-4 text-black flex-shrink-0 mt-0.5" />
-                              <span className="text-sm text-gray-600">{feature}</span>
-                            </li>
-                          ))}
-                        </ul>
+                        <h3 className="text-xl font-bold">{specialty.title}</h3>
+                        <p className="text-gray-600">{specialty.description}</p>
                       </div>
                     </div>
-                  </Card>
-                ))}
-              </div>
-              
-              <div className="bg-gray-50 rounded-xl p-8 border border-gray-200 text-center">
-                <h3 className="text-xl font-bold mb-4">Don't See Your Specialty?</h3>
-                <p className="text-gray-600 mb-6 max-w-xl mx-auto">
-                  ClinicFlow Pro is highly customizable to meet the needs of virtually any healthcare specialty. 
-                  Contact us to learn how we can tailor our solution for your specific practice.
-                </p>
-                <Link to="/contact" className="inline-block px-6 py-3 bg-black text-white rounded-lg font-medium hover:bg-gray-800 transition-colors">
-                  Contact Our Specialty Team
-                </Link>
-              </div>
+                    <Separator className="mb-4" />
+                    <ul className="space-y-2">
+                      {specialty.features.map((feature, idx) => (
+                        <li key={idx} className="flex items-start gap-2 p-2 rounded-lg hover:bg-gray-50 transition-colors">
+                          <div className="flex-shrink-0 mt-0.5">
+                            <div className="h-5 w-5 rounded-full bg-black/10 flex items-center justify-center">
+                              <Check className="h-3 w-3 text-black" />
+                            </div>
+                          </div>
+                          <span className="text-gray-600">{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </Card>
+              ))}
             </div>
+            
+            <Card className="border-0 shadow-lg overflow-hidden">
+              <div className="p-8 bg-gray-50">
+                <div className="text-center">
+                  <h3 className="text-xl font-bold mb-4">Don't See Your Specialty?</h3>
+                  <Separator className="w-16 h-1 bg-black mx-auto mb-6" />
+                  <p className="text-gray-600 mb-6 max-w-xl mx-auto">
+                    ClinicFlow Pro is highly customizable to meet the needs of virtually any healthcare specialty. 
+                    Contact us to learn how we can tailor our solution for your specific practice.
+                  </p>
+                  <Link to="/contact" className="inline-flex items-center px-6 py-3 bg-black text-white rounded-lg font-medium hover:bg-gray-800 transition-colors group">
+                    Contact Our Specialty Team
+                    <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </Link>
+                </div>
+              </div>
+            </Card>
           </TabsContent>
         </Tabs>
         
         {/* Testimonials Section */}
-        <div className="mt-24">
-          <h2 className="text-3xl font-bold tracking-tight mb-8 text-center">
-            Trusted by Healthcare Professionals
-          </h2>
+        <div className="mt-24 space-y-8">
+          <div className="text-center">
+            <h2 className="text-3xl font-bold tracking-tight mb-2">Trusted by Healthcare Professionals</h2>
+            <Separator className="w-16 h-1 bg-black mx-auto mb-8" />
+          </div>
           
-          <div className="relative overflow-hidden">
-            <div className="flex animate-scroll hover:[animation-play-state:paused]">
-              <div className="flex gap-8 min-w-full">
-                {testimonials.concat(testimonials).map((testimonial, index) => (
-                  <Card key={index} className="p-6 border border-gray-200 w-[350px] flex-shrink-0">
-                    <div className="flex flex-col h-full">
-                      <div className="mb-4">
-                        <div className="flex gap-0.5 mb-4">
-                          {[...Array(5)].map((_, i) => (
-                            <svg key={i} xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="black" stroke="none">
-                              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                            </svg>
-                          ))}
-                        </div>
-                        <p className="text-gray-600 italic mb-4">"{testimonial.quote}"</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {testimonials.slice(0, 3).map((testimonial, index) => (
+              <Card key={index} className="border-0 shadow-lg h-full">
+                <div className="p-6 flex flex-col h-full">
+                  <div className="mb-6">
+                    <div className="flex gap-0.5 mb-4">
+                      {[...Array(5)].map((_, i) => (
+                        <svg key={i} xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="black" stroke="none">
+                          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                        </svg>
+                      ))}
+                    </div>
+                    <p className="text-gray-600 italic">"{testimonial.quote}"</p>
+                  </div>
+                  <div className="mt-auto pt-4 border-t border-gray-100">
+                    <div className="flex items-center gap-3">
+                      <div className="w-12 h-12 rounded-full overflow-hidden bg-gray-100">
+                        <img src={testimonial.avatar} alt={testimonial.name} className="w-full h-full object-cover grayscale" />
                       </div>
-                      <div className="mt-auto flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-full overflow-hidden bg-gray-100">
-                          <img src={testimonial.avatar} alt={testimonial.name} className="w-full h-full object-cover grayscale" />
-                        </div>
-                        <div>
-                          <p className="font-bold">{testimonial.name}</p>
-                          <p className="text-sm text-gray-600">{testimonial.role}, {testimonial.specialty}</p>
-                        </div>
+                      <div>
+                        <p className="font-bold">{testimonial.name}</p>
+                        <p className="text-sm text-gray-600">{testimonial.role}, {testimonial.specialty}</p>
                       </div>
                     </div>
-                  </Card>
-                ))}
-              </div>
-            </div>
+                  </div>
+                </div>
+              </Card>
+            ))}
+          </div>
+          
+          <div className="flex justify-center mt-8">
+            <Link to="/about" className="inline-flex items-center gap-2 text-black hover:underline group">
+              See more success stories
+              <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </Link>
           </div>
         </div>
       </div>
