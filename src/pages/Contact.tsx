@@ -313,10 +313,23 @@ const Contact = () => {
                           {React.cloneElement(item.icon, { className: "h-5 w-5 text-black" })}
                         </div>
                       </div>
-                      <div>
+                      <div className="flex-1">
                         <h3 className="text-lg font-semibold mb-1">{item.title}</h3>
                         <p className="text-gray-700">{item.content}</p>
                         {item.extra && <p className="text-sm text-gray-500 mt-1">{item.extra}</p>}
+                        {item.whatsappUrl && (
+                          <div className="mt-2">
+                            <a
+                              href={item.whatsappUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-2 text-sm bg-green-500 hover:bg-green-600 text-white px-3 py-1.5 rounded-full transition-colors duration-200"
+                            >
+                              <MessageSquare className="h-4 w-4" />
+                              WhatsApp Me
+                            </a>
+                          </div>
+                        )}
                       </div>
                     </div>
                   ))}
@@ -615,7 +628,8 @@ const contactInfo = [
     icon: <Phone className="h-5 w-5" />,
     title: "Phone",
     content: "+91-8087098711",
-    extra: "Monday to Saturday, 9:00 AM to 7:00 PM IST"
+    extra: "Monday to Saturday, 9:00 AM to 7:00 PM IST",
+    whatsappUrl: "https://wa.me/918087098711"
   },
   {
     icon: <Mail className="h-5 w-5" />,

@@ -91,11 +91,7 @@ const Footer = () => {
                   Contact
                 </Link>
               </li>
-              <li>
-                <Link to="/blog" className="text-gray-600 hover:text-gray-900 transition-colors">
-                  Blog
-                </Link>
-              </li>
+
             </ul>
           </div>
 
@@ -159,9 +155,12 @@ const Footer = () => {
 
         {/* Bottom bar */}
         <div className="border-t border-gray-100 px-6 py-8 md:px-8">
-          <p className="text-center text-xs leading-5 text-gray-500">
-            © {new Date().getFullYear()} ClinicFlow. All rights reserved.
-          </p>
+          <div className="flex flex-col sm:flex-row justify-between items-center">
+            <p className="text-center text-xs leading-5 text-gray-500">
+              © {new Date().getFullYear()} ClinicFlow. All rights reserved.
+            </p>
+
+          </div>
         </div>
       </div>
     </footer>

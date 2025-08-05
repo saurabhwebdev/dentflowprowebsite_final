@@ -14,6 +14,7 @@ import Pricing from "./pages/Pricing";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 import CookiePolicy from "./pages/CookiePolicy";
+
 import { TransitionModal } from "./components/ui/transition-modal";
 import { useState, useEffect, createContext, useContext } from "react";
 import ScrollToTop from "./components/ScrollToTop";
