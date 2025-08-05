@@ -47,7 +47,7 @@ export function Hero({ className }: HeroProps) {
                 Get Started
               </Button>
             </a>
-            <Link to="/contact" aria-label="Book a demo of ClinicFlow">
+            <Link to="/contact?tab=schedule" aria-label="Book a demo of ClinicFlow">
               <Button variant="outline" size="lg" className="h-12 px-8 font-medium border-black text-black hover:bg-gray-100">
                 Book Demo
               </Button>
