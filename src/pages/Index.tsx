@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Link } from 'react-router-dom';
 import { ParticleBackground } from '@/components/ui/particle-background';
+import { AnimatedGradient } from '@/components/ui/animated-gradient';
 import {
   Check,
   Clock,
@@ -36,12 +37,15 @@ const Index = () => {
       </Helmet>
 
       {/* Hero Section */}
-      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-50 via-white to-gray-100">
+      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
+        {/* Animated Gradient Background - Apple Rising Sun Effect */}
+        <AnimatedGradient />
+
         {/* Particle Animation Background */}
         <ParticleBackground />
 
         {/* Subtle background pattern */}
-        <div className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] opacity-20"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] opacity-15"></div>
 
         <div className="container relative z-10 px-4 md:px-6 py-20">
           <div className="max-w-5xl mx-auto text-center">
