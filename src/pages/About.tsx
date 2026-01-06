@@ -413,7 +413,7 @@ const About = () => {
               Join thousands of healthcare professionals who've elevated their practice management with ClinicFlow Pro.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
-              <a href="https://clinicflow-roan.vercel.app/signin" target="_blank" rel="noopener noreferrer" className="px-6 py-3 bg-white text-black rounded-lg font-medium hover:bg-gray-100 transition-colors">
+              <a href="https://tvccms.vercel.app/login" target="_blank" rel="noopener noreferrer" className="px-6 py-3 bg-white text-black rounded-lg font-medium hover:bg-gray-100 transition-colors">
                 Get Started
               </a>
               <Link to="/contact" className="px-6 py-3 border border-white rounded-lg font-medium hover:bg-white/10 transition-colors">

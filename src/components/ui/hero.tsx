@@ -37,21 +37,21 @@ export function Hero({ className }: HeroProps) {
             Streamline your healthcare practice with our intuitive, efficient, and comprehensive management solution for all clinical specialties.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12 animate-fade-in-delayed">
-            <a href="https://clinicflowpronextmongo.vercel.app/auth/signin" target="_blank" rel="noopener noreferrer" aria-label="Sign in to ClinicFlow">
+            <a href="https://tvccms.vercel.app/login" target="_blank" rel="noopener noreferrer" aria-label="Sign in to ClinicFlow">
               <Button variant="outline" size="lg" className="h-12 px-8 font-medium border-black text-black hover:bg-gray-100">
                 Sign In
               </Button>
             </a>
-            <a href="https://clinicflowpronextmongo.vercel.app/auth/signup" target="_blank" rel="noopener noreferrer" aria-label="Get started with ClinicFlow">
+            <a href="https://tvccms.vercel.app/login" target="_blank" rel="noopener noreferrer" aria-label="Get started with ClinicFlow">
               <Button size="lg" className="h-12 px-8 font-medium bg-black hover:bg-gray-800 text-white">
                 Get Started
               </Button>
             </a>
-            <Link to="/contact?tab=schedule" aria-label="Book a demo of ClinicFlow">
+            <a href="https://tvccms.vercel.app/login" target="_blank" rel="noopener noreferrer" aria-label="Book a demo of ClinicFlow">
               <Button variant="outline" size="lg" className="h-12 px-8 font-medium border-black text-black hover:bg-gray-100">
                 Book Demo
               </Button>
-            </Link>
+            </a>
           </div>
           
           <div className="mt-8 sm:mt-14 grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 max-w-3xl mx-auto animate-slide-up-delayed">

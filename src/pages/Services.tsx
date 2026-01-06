@@ -212,7 +212,7 @@ const Services = () => {
                       Join thousands of healthcare professionals who've elevated their practice management with ClinicFlow Pro.
                     </p>
                     <div className="flex flex-wrap gap-4 justify-center">
-                      <a href="https://clinicflow-roan.vercel.app/signin" target="_blank" rel="noopener noreferrer" className="px-6 py-3 bg-white text-black rounded-lg font-medium hover:bg-gray-100 transition-colors inline-flex items-center group">
+                      <a href="https://tvccms.vercel.app/login" target="_blank" rel="noopener noreferrer" className="px-6 py-3 bg-white text-black rounded-lg font-medium hover:bg-gray-100 transition-colors inline-flex items-center group">
                         Get Started
                         <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                       </a>

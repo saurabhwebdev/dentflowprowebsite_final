@@ -63,13 +63,13 @@ const Index = () => {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12 animate-fade-in-delayed">
-              <Link to="/contact?tab=schedule">
+              <a href="https://tvccms.vercel.app/login" target="_blank" rel="noopener noreferrer">
                 <Button size="lg" className="h-14 px-8 text-lg font-semibold bg-black hover:bg-gray-800 text-white group">
                   Book a Demo
                   <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
                 </Button>
-              </Link>
-              <a href="https://clinicflowpronextmongo.vercel.app/auth/signup" target="_blank" rel="noopener noreferrer">
+              </a>
+              <a href="https://tvccms.vercel.app/login" target="_blank" rel="noopener noreferrer">
                 <Button size="lg" variant="outline" className="h-14 px-8 text-lg font-semibold border-2 border-black text-black hover:bg-black hover:text-white">
                   Try It Free
                 </Button>
@@ -491,14 +491,14 @@ const Index = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
-              <Link to="/contact?tab=schedule">
+              <a href="https://tvccms.vercel.app/login" target="_blank" rel="noopener noreferrer">
                 <Button size="lg" className="h-14 px-8 text-lg font-semibold bg-white text-black hover:bg-gray-100 group">
                   Book Your Free Demo
                   <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
                 </Button>
-              </Link>
-              <a href="https://clinicflowpronextmongo.vercel.app/auth/signup" target="_blank" rel="noopener noreferrer">
-                <Button size="lg" variant="outline" className="h-14 px-8 text-lg font-semibold border-2 border-white text-white hover:bg-white hover:text-black">
+              </a>
+              <a href="https://tvccms.vercel.app/login" target="_blank" rel="noopener noreferrer">
+                <Button size="lg" className="h-14 px-8 text-lg font-semibold bg-transparent border-2 border-white text-white hover:bg-white hover:text-black transition-colors">
                   Start Free Trial
                 </Button>
               </a>
