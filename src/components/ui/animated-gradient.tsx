@@ -17,15 +17,19 @@ export function AnimatedGradient() {
         .animated-gradient-bg {
           background: linear-gradient(
             -45deg,
-            #f8f9fa,
-            #e9ecef,
-            #f1f3f5,
-            #dee2e6,
-            #f8f9fa,
-            #e9ecef
+            #ffecd2,
+            #fcb69f,
+            #a1c4fd,
+            #c2e9fb,
+            #d4fc79,
+            #96e6a1,
+            #ffecd2,
+            #dfe6e9,
+            #fad0c4,
+            #ffd1ff
           );
           background-size: 400% 400%;
-          animation: gradientShift 15s ease infinite;
+          animation: gradientShift 20s ease infinite;
         }
 
         @keyframes gradientShift {
@@ -49,15 +53,15 @@ export function AnimatedGradient() {
         .gradient-orb {
           position: absolute;
           border-radius: 50%;
-          filter: blur(80px);
-          opacity: 0.4;
+          filter: blur(100px);
+          opacity: 0.6;
           animation: float 20s ease-in-out infinite;
         }
 
         .gradient-orb-1 {
           width: 600px;
           height: 600px;
-          background: radial-gradient(circle, rgba(200, 200, 200, 0.8) 0%, transparent 70%);
+          background: radial-gradient(circle, rgba(161, 196, 253, 0.8) 0%, rgba(194, 233, 251, 0.4) 50%, transparent 70%);
           top: -200px;
           left: -100px;
           animation-delay: 0s;
@@ -66,7 +70,7 @@ export function AnimatedGradient() {
         .gradient-orb-2 {
           width: 500px;
           height: 500px;
-          background: radial-gradient(circle, rgba(180, 180, 180, 0.6) 0%, transparent 70%);
+          background: radial-gradient(circle, rgba(250, 208, 196, 0.8) 0%, rgba(255, 209, 255, 0.4) 50%, transparent 70%);
           bottom: -150px;
           right: -100px;
           animation-delay: -5s;
@@ -74,9 +78,9 @@ export function AnimatedGradient() {
         }
 
         .gradient-orb-3 {
-          width: 400px;
-          height: 400px;
-          background: radial-gradient(circle, rgba(220, 220, 220, 0.5) 0%, transparent 70%);
+          width: 450px;
+          height: 450px;
+          background: radial-gradient(circle, rgba(212, 252, 121, 0.6) 0%, rgba(150, 230, 161, 0.3) 50%, transparent 70%);
           top: 50%;
           left: 50%;
           transform: translate(-50%, -50%);
