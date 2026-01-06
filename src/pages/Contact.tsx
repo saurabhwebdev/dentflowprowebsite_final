@@ -112,11 +112,11 @@ const Contact = () => {
       </Helmet>
 
       <PageHeader
-        title={activeTab === 'schedule' ? 'Schedule a Demo' : 'Contact Us'}
+        title={activeTab === 'schedule' ? 'Schedule Your Free Demo' : 'Get In Touch'}
         description={
           activeTab === 'schedule'
-            ? 'Book a personalized demonstration of ClinicFlow with our team'
-            : "We're here to help and answer any questions you might have"
+            ? 'See ClinicFlow in action - book a personalized demo and discover how we can transform your clinic'
+            : "Have questions? Want to learn more? We're here to help you find the perfect solution for your clinic"
         }
         breadcrumbs={breadcrumbs}
         className="bg-gradient-to-r from-gray-100 to-gray-200"

@@ -33,9 +33,9 @@ const Services = () => {
         </script>
       </Helmet>
       
-      <PageHeader 
-        title="Our Services" 
-        description="A unified platform for healthcare practices of all specialties"
+      <PageHeader
+        title="Complete Clinic Management Solutions"
+        description="Everything you need to run your clinic efficiently, in one powerful platform"
         breadcrumbs={breadcrumbs}
         className="bg-gradient-to-r from-gray-100 to-gray-200"
       />
@@ -82,8 +82,8 @@ const Services = () => {
           <TabsContent value="overview" className="space-y-12">
             <div className="max-w-3xl mx-auto text-center mb-12">
               <p className="text-lg text-gray-600">
-                ClinicFlow Pro provides comprehensive solutions for healthcare practices of all specialties. 
-                Our platform combines intuitive design with powerful features to help you deliver exceptional patient care.
+                ClinicFlow provides comprehensive solutions for healthcare practices of all specialties.
+                Our platform combines intuitive design with powerful features to help you save time, increase revenue, and deliver exceptional patient care.
               </p>
             </div>
             

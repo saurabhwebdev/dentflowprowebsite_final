@@ -78,11 +78,11 @@ const About = () => {
         </script>
       </Helmet>
       
-      <PageHeader 
-        title="About ClinicFlow" 
-        description="We're on a mission to simplify practice management so you can focus on what matters most—your patients."
+      <PageHeader
+        title="About ClinicFlow"
+        description="We're on a mission to help clinic owners run their practices effortlessly, so they can focus on delivering exceptional patient care."
         breadcrumbs={breadcrumbs}
-        className="bg-gradient-to-r from-blue-500/10 to-purple-500/10"
+        className="bg-gradient-to-r from-gray-100 to-gray-200"
       />
       
       <div className="container max-w-7xl mx-auto px-4 py-16 sm:px-6 lg:px-8">

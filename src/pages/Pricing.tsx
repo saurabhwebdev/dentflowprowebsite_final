@@ -30,9 +30,9 @@ const Pricing = () => {
         </script>
       </Helmet>
       
-      <PageHeader 
-        title="Custom Pricing Plans" 
-        description="Tailored solutions for your unique practice needs"
+      <PageHeader
+        title="Simple, Transparent Pricing"
+        description="Get exactly what you need at a fair price - no hidden fees, no surprises"
         breadcrumbs={breadcrumbs}
         className="bg-gradient-to-r from-gray-100 to-gray-200"
       />
@@ -40,11 +40,11 @@ const Pricing = () => {
       <div className="container max-w-6xl mx-auto px-4 py-12 sm:px-6 lg:px-8">
         {/* Intro Section */}
         <div className="max-w-3xl mx-auto text-center mb-16">
-          <h2 className="text-3xl font-bold tracking-tight mb-4">No One-Size-Fits-All Pricing</h2>
+          <h2 className="text-3xl font-bold tracking-tight mb-4">Custom Pricing for Your Clinic</h2>
           <Separator className="w-16 h-1 bg-black mx-auto mb-6" />
           <p className="text-xl text-gray-600 mb-8">
-            We believe your practice shouldn't pay for features you don't need. That's why we create 
-            customized pricing plans based on your specific requirements.
+            Every clinic is unique. We create customized pricing plans that match your specific needs and budget,
+            so you only pay for what you actually use.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-left mt-12">
             {[
