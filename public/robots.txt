@@ -1,0 +1,9 @@
+# Allow all web crawlers
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://clinicflow.space/sitemap.xml
+
+# Set crawl delay to reduce server load
+Crawl-delay: 2
