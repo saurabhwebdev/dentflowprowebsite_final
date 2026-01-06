@@ -64,7 +64,7 @@ export function Hero({ className }: HeroProps) {
               </div>
               <div className="text-left">
                 <div className="font-medium text-sm text-gray-900">Trusted</div>
-                <div className="text-xs text-gray-700">By 1,000+ clinics</div>
+                <div className="text-xs text-gray-700">By 20+ clinics</div>
               </div>
             </div>
             

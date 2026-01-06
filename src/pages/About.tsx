@@ -124,7 +124,7 @@ const About = () => {
                 {
                   icon: <TrendingUp className="h-6 w-6 text-green-600" />,
                   title: "Proven Results",
-                  description: "1,000+ clinics trust us to manage 10M+ appointments. Our customers see 35% efficiency gains and 20-30% revenue increases.",
+                  description: "20+ clinics trust us to manage their appointments efficiently. Our customers see 35% efficiency gains and 20-30% revenue increases.",
                   stat: "Real, measurable impact"
                 },
                 {
@@ -173,7 +173,7 @@ const About = () => {
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
               {[
-                { number: "1,000+", label: "Active Clinics" },
+                { number: "20+", label: "Active Clinics" },
                 { number: "10M+", label: "Appointments Managed" },
                 { number: "35%", label: "Efficiency Increase" },
                 { number: "99.9%", label: "Uptime" }
@@ -193,7 +193,7 @@ const About = () => {
         <div className="container px-4 md:px-6">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
-              Ready to Join 1,000+ Successful Clinics?
+              Ready to Join 20+ Successful Clinics?
             </h2>
             <p className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
               See how ClinicFlow can transform your clinic operations and help you deliver better patient care

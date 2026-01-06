@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Link } from 'react-router-dom';
+import { ParticleBackground } from '@/components/ui/particle-background';
 import {
   Check,
   Clock,
@@ -36,15 +37,18 @@ const Index = () => {
 
       {/* Hero Section */}
       <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-50 via-white to-gray-100">
+        {/* Particle Animation Background */}
+        <ParticleBackground />
+
         {/* Subtle background pattern */}
-        <div className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] opacity-30"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] opacity-20"></div>
 
         <div className="container relative z-10 px-4 md:px-6 py-20">
           <div className="max-w-5xl mx-auto text-center">
             {/* Trust badge */}
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-black/5 rounded-full mb-6 animate-fade-in">
               <CheckCircle2 className="h-4 w-4 text-black" />
-              <span className="text-sm font-medium">Trusted by 1,000+ Clinics Worldwide</span>
+              <span className="text-sm font-medium">Trusted by 20+ Clinics Across India</span>
             </div>
 
             {/* Main headline */}
@@ -89,7 +93,7 @@ const Index = () => {
               <div className="bg-white/80 backdrop-blur-sm p-6 rounded-xl shadow-sm border border-gray-200 hover:shadow-md transition-shadow">
                 <div className="flex items-center justify-center gap-2 mb-2">
                   <Users className="h-5 w-5 text-black" />
-                  <div className="text-3xl font-bold">1,000+</div>
+                  <div className="text-3xl font-bold">20+</div>
                 </div>
                 <div className="text-sm text-gray-600">Clinics Trust Us</div>
               </div>
@@ -407,7 +411,7 @@ const Index = () => {
                 Trusted by Clinic Owners Worldwide
               </h2>
               <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-                Join 1,000+ clinics that have transformed their operations with ClinicFlow
+                Join 20+ clinics that have transformed their operations with ClinicFlow
               </p>
             </div>
 
@@ -464,7 +468,7 @@ const Index = () => {
             {/* Stats */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16">
               {[
-                { number: "1,000+", label: "Active Clinics" },
+                { number: "20+", label: "Active Clinics" },
                 { number: "10M+", label: "Appointments Managed" },
                 { number: "35%", label: "Efficiency Increase" },
                 { number: "99.9%", label: "Uptime Guaranteed" }
@@ -487,7 +491,7 @@ const Index = () => {
               Ready to Transform Your Clinic?
             </h2>
             <p className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
-              Join 1,000+ clinics that are saving time, increasing revenue, and delivering better patient care with ClinicFlow
+              Join 20+ clinics that are saving time, increasing revenue, and delivering better patient care with ClinicFlow
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">

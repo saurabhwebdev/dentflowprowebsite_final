@@ -54,9 +54,15 @@ const Pricing = () => {
                 What You Need
               </span>
             </h1>
-            <p className="text-lg sm:text-xl md:text-2xl text-gray-600 max-w-2xl mx-auto mb-10 leading-relaxed">
+            <p className="text-lg sm:text-xl md:text-2xl text-gray-600 max-w-2xl mx-auto mb-6 leading-relaxed">
               Custom pricing plans tailored to your clinic's size, features, and patient volume. No hidden fees, no surprises.
             </p>
+
+            {/* Price Highlight */}
+            <div className="inline-flex items-center gap-3 px-6 py-4 bg-green-50 border-2 border-green-200 rounded-2xl">
+              <span className="text-green-700 font-medium text-lg">Plans start as low as</span>
+              <span className="text-4xl font-bold text-green-600">₹21<span className="text-xl">/day</span></span>
+            </div>
           </div>
         </div>
       </section>
