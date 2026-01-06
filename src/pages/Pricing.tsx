@@ -1,12 +1,19 @@
 import React from 'react';
-import { PageHeader } from '@/components/ui/page-header';
-import { Card } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+import { Button } from '@/components/ui/button';
+import { Card } from '@/components/ui/card';
+import { Link } from 'react-router-dom';
+import {
+  Check,
+  ArrowRight,
+  Users,
+  Zap,
+  Shield,
+  BarChart2,
+  Star,
+  Clock
+} from 'lucide-react';
 import { generateBreadcrumbSchema } from '@/lib/utils';
-import { CheckIcon, ArrowRight, Users, Zap, ShieldCheck, BarChart2, Lock, Star } from 'lucide-react';
-import { Separator } from '@/components/ui/separator';
 
 const Pricing = () => {
   const breadcrumbs = [
@@ -19,232 +26,244 @@ const Pricing = () => {
   );
 
   return (
-    <div className="bg-white min-h-screen">
+    <div className="bg-white text-black">
       <Helmet>
-        <title>Pricing | ClinicFlow - Custom Healthcare Software Pricing</title>
-        <meta name="description" content="Get a customized pricing plan for ClinicFlow's clinic management software tailored to your healthcare practice's unique needs." />
+        <title>Pricing | ClinicFlow - Simple, Transparent Pricing</title>
+        <meta name="description" content="Get custom pricing tailored to your clinic's needs. No hidden fees, transparent pricing, and features you'll actually use." />
         <link rel="canonical" href="https://clinicflow.space/pricing" />
-        <meta name="keywords" content="clinic management pricing, healthcare software cost, custom pricing, clinic software pricing, medical practice management cost" />
+        <meta name="keywords" content="clinic management pricing, healthcare software cost, custom pricing, clinic software pricing" />
         <script type="application/ld+json">
           {JSON.stringify(breadcrumbSchema)}
         </script>
       </Helmet>
-      
-      <PageHeader
-        title="Simple, Transparent Pricing"
-        description="Get exactly what you need at a fair price - no hidden fees, no surprises"
-        breadcrumbs={breadcrumbs}
-        className="bg-gradient-to-r from-gray-100 to-gray-200"
-      />
-      
-      <div className="container max-w-6xl mx-auto px-4 py-12 sm:px-6 lg:px-8">
-        {/* Intro Section */}
-        <div className="max-w-3xl mx-auto text-center mb-16">
-          <h2 className="text-3xl font-bold tracking-tight mb-4">Custom Pricing for Your Clinic</h2>
-          <Separator className="w-16 h-1 bg-black mx-auto mb-6" />
-          <p className="text-xl text-gray-600 mb-8">
-            Every clinic is unique. We create customized pricing plans that match your specific needs and budget,
-            so you only pay for what you actually use.
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-left mt-12">
-            {[
-              {
-                icon: <Users className="h-6 w-6 text-black" />,
-                title: "Practice Size",
-                description: "Plans based on the number of practitioners and staff at your clinic"
-              },
-              {
-                icon: <Zap className="h-6 w-6 text-black" />,
-                title: "Feature Selection",
-                description: "Only pay for the specific features and modules your practice needs"
-              },
-              {
-                icon: <BarChart2 className="h-6 w-6 text-black" />,
-                title: "Usage Volume",
-                description: "Scaling options based on your patient load and appointment volume"
-              }
-            ].map((item, index) => (
-              <Card key={index} className="p-6 border-0 shadow-md hover:shadow-lg transition-shadow">
-                <div className="h-12 w-12 rounded-full bg-gray-100 flex items-center justify-center mb-4">
-                  {item.icon}
-                </div>
-                <h3 className="text-lg font-bold mb-2">{item.title}</h3>
-                <p className="text-gray-600">{item.description}</p>
-              </Card>
-            ))}
+
+      {/* Hero Section */}
+      <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-50 via-white to-gray-100">
+        <div className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] opacity-30"></div>
+
+        <div className="container relative z-10 px-4 md:px-6 py-20">
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-black/5 rounded-full mb-6">
+              <Check className="h-4 w-4 text-black" />
+              <span className="text-sm font-medium">Transparent, Fair Pricing</span>
+            </div>
+
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-6">
+              Pay Only For
+              <span className="block mt-2 bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent">
+                What You Need
+              </span>
+            </h1>
+            <p className="text-lg sm:text-xl md:text-2xl text-gray-600 max-w-2xl mx-auto mb-10 leading-relaxed">
+              Custom pricing plans tailored to your clinic's size, features, and patient volume. No hidden fees, no surprises.
+            </p>
           </div>
         </div>
+      </section>
 
-        {/* Core Features Section */}
-        <div className="mt-16 mb-16">
-          <h2 className="text-3xl font-bold tracking-tight mb-4 text-center">All Plans Include</h2>
-          <Separator className="w-16 h-1 bg-black mx-auto mb-12" />
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-10 gap-x-8">
-            {[
-              {
-                icon: <ShieldCheck className="h-5 w-5" />,
-                title: "HIPAA Compliance",
-                description: "Enterprise-grade security that keeps patient data safe and compliant"
-              },
-              {
-                icon: <Users className="h-5 w-5" />,
-                title: "Unlimited Users",
-                description: "No per-user fees - your entire team can collaborate efficiently"
-              },
-              {
-                icon: <Lock className="h-5 w-5" />,
-                title: "Data Security",
-                description: "End-to-end encryption and regular backups to protect your information"
-              },
-              {
-                icon: <Star className="h-5 w-5" />,
-                title: "Premium Support",
-                description: "Dedicated customer success team available via phone, email, and chat"
-              },
-              {
-                icon: <Zap className="h-5 w-5" />,
-                title: "Regular Updates",
-                description: "Continuous improvements and new features at no additional cost"
-              },
-              {
-                icon: <BarChart2 className="h-5 w-5" />,
-                title: "Analytics Dashboard",
-                description: "Actionable insights to help optimize your practice operations"
-              }
-            ].map((feature, index) => (
-              <div key={index} className="flex items-start gap-4">
-                <div className="flex-shrink-0">
-                  <div className="h-10 w-10 rounded-full bg-gray-100 flex items-center justify-center">
-                    {feature.icon}
-                  </div>
-                </div>
-                <div>
-                  <h3 className="text-lg font-bold mb-1">{feature.title}</h3>
-                  <p className="text-gray-600">{feature.description}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
+      {/* Pricing Factors */}
+      <section className="py-20 bg-white">
+        <div className="container px-4 md:px-6">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl sm:text-4xl font-bold mb-4">
+                How We Calculate Your Price
+              </h2>
+              <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+                Three simple factors that determine your custom pricing
+              </p>
+            </div>
 
-        {/* Call to Action */}
-        <Card className="border-0 shadow-lg mt-16 overflow-hidden">
-          <div className="p-8 md:p-12">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-              <div>
-                <h2 className="text-3xl font-bold mb-4">Get Your Custom Quote</h2>
-                <p className="text-gray-600 mb-6">
-                  Every healthcare practice is unique. Contact us today for a customized pricing plan 
-                  that perfectly fits your clinic's needs and budget. Our experts will help you 
-                  select only the features you need so you never pay for unnecessary functionality.
-                </p>
-                <ul className="space-y-2 mb-8">
-                  {[
-                    "Transparent pricing with no hidden fees",
-                    "Flexible monthly or annual billing options",
-                    "Scale your plan as your practice grows",
-                    "Free implementation and training included"
-                  ].map((item, i) => (
-                    <li key={i} className="flex items-start gap-2">
-                      <CheckIcon className="h-5 w-5 text-black mt-0.5 flex-shrink-0" />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-                <Button asChild className="bg-black hover:bg-gray-800 text-white px-6 py-6 h-auto text-lg group">
-                  <Link to="/contact" className="flex items-center gap-2">
-                    Contact for Custom Pricing
-                    <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
-                  </Link>
-                </Button>
-              </div>
-              <div className="hidden lg:block">
-                <div className="relative">
-                  <div className="absolute -inset-0.5 bg-gradient-to-r from-gray-200 to-gray-300 rounded-lg blur"></div>
-                  <div className="relative bg-white p-8 rounded-lg">
-                    <h3 className="text-2xl font-bold mb-6 flex items-center gap-2">
-                      <span className="h-2 w-2 bg-black rounded-full"></span>
-                      Why Custom Pricing?
-                    </h3>
-                    <div className="space-y-4">
-                      <p className="text-gray-600">
-                        We've found that standard tiered pricing often means clients either:
-                      </p>
-                      <ul className="space-y-3">
-                        <li className="flex items-start gap-3">
-                          <div className="h-6 w-6 rounded-full bg-gray-100 flex items-center justify-center flex-shrink-0">
-                            <span className="font-medium">1</span>
-                          </div>
-                          <p className="text-gray-600">
-                            Pay for features they never use
-                          </p>
-                        </li>
-                        <li className="flex items-start gap-3">
-                          <div className="h-6 w-6 rounded-full bg-gray-100 flex items-center justify-center flex-shrink-0">
-                            <span className="font-medium">2</span>
-                          </div>
-                          <p className="text-gray-600">
-                            Need to upgrade to expensive tiers for just one feature
-                          </p>
-                        </li>
-                        <li className="flex items-start gap-3">
-                          <div className="h-6 w-6 rounded-full bg-gray-100 flex items-center justify-center flex-shrink-0">
-                            <span className="font-medium">3</span>
-                          </div>
-                          <p className="text-gray-600">
-                            Can't get the exact combination of tools they need
-                          </p>
-                        </li>
-                      </ul>
-                      <Separator className="my-4" />
-                      <p className="text-gray-600">
-                        Our custom pricing ensures you get exactly what you need at a fair price point.
-                      </p>
-                    </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {[
+                {
+                  icon: <Users className="h-8 w-8" />,
+                  title: "Practice Size",
+                  description: "Number of practitioners and staff members using the system"
+                },
+                {
+                  icon: <Zap className="h-8 w-8" />,
+                  title: "Feature Selection",
+                  description: "Only the specific features and modules your practice actually needs"
+                },
+                {
+                  icon: <BarChart2 className="h-8 w-8" />,
+                  title: "Usage Volume",
+                  description: "Based on your patient load and monthly appointment volume"
+                }
+              ].map((factor, index) => (
+                <Card key={index} className="p-8 bg-white border-gray-200 hover:shadow-xl hover:border-gray-300 transition-all group">
+                  <div className="h-16 w-16 rounded-2xl bg-gradient-to-br from-gray-100 to-gray-50 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                    <div className="text-black">{factor.icon}</div>
                   </div>
-                </div>
-              </div>
+                  <h3 className="text-xl font-bold mb-3">{factor.title}</h3>
+                  <p className="text-gray-600">{factor.description}</p>
+                </Card>
+              ))}
             </div>
           </div>
-        </Card>
+        </div>
+      </section>
 
-        {/* Testimonials */}
-        <div className="mt-24 text-center">
-          <h2 className="text-2xl font-bold mb-12">What Our Clients Say About Our Pricing Model</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              {
-                quote: "The custom pricing model saved us from paying for features we never would have used. We got exactly what we needed at a price point that made sense for our small practice.",
-                author: "Dr. Sarah Johnson",
-                position: "Family Practice, 3 Physicians"
-              },
-              {
-                quote: "I was skeptical at first, but their consultative approach to pricing was refreshing. They took the time to understand our workflow before recommending a solution.",
-                author: "Dr. Michael Chen",
-                position: "Orthopedic Specialist, 8 Physicians"
-              },
-              {
-                quote: "As our practice grew, ClinicFlow scaled with us. Their flexible pricing allowed us to add features incrementally without breaking our budget.",
-                author: "Lisa Rodriguez",
-                position: "Practice Manager, Multi-location Clinic"
-              }
-            ].map((testimonial, index) => (
-              <Card key={index} className="p-6 border-0 shadow-md hover:shadow-lg transition-shadow">
-                <blockquote>
-                  <p className="text-gray-600 italic mb-6">"{testimonial.quote}"</p>
-                  <footer>
-                    <p className="font-bold">{testimonial.author}</p>
-                    <p className="text-gray-500 text-sm">{testimonial.position}</p>
-                  </footer>
-                </blockquote>
-              </Card>
-            ))}
+      {/* What's Included */}
+      <section className="py-20 bg-gray-50">
+        <div className="container px-4 md:px-6">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl sm:text-4xl font-bold mb-4">
+                Every Plan Includes
+              </h2>
+              <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+                Core features that every ClinicFlow customer gets, regardless of plan
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[
+                {
+                  icon: <Shield className="h-5 w-5" />,
+                  title: "HIPAA Compliance",
+                  description: "Enterprise-grade security and compliance"
+                },
+                {
+                  icon: <Users className="h-5 w-5" />,
+                  title: "Unlimited Users",
+                  description: "No per-user fees for your team"
+                },
+                {
+                  icon: <Clock className="h-5 w-5" />,
+                  title: "24/7 Support",
+                  description: "Phone, email, and chat support"
+                },
+                {
+                  icon: <Star className="h-5 w-5" />,
+                  title: "Free Updates",
+                  description: "New features at no extra cost"
+                },
+                {
+                  icon: <BarChart2 className="h-5 w-5" />,
+                  title: "Analytics Dashboard",
+                  description: "Real-time insights and reports"
+                },
+                {
+                  icon: <Zap className="h-5 w-5" />,
+                  title: "Setup & Training",
+                  description: "Complete onboarding included"
+                }
+              ].map((feature, index) => (
+                <div key={index} className="flex items-start gap-4 p-4 bg-white rounded-lg">
+                  <div className="flex-shrink-0 p-2 bg-gray-100 rounded-lg">
+                    <div className="text-black">{feature.icon}</div>
+                  </div>
+                  <div>
+                    <h3 className="font-bold mb-1">{feature.title}</h3>
+                    <p className="text-sm text-gray-600">{feature.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
-      </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 bg-white">
+        <div className="container px-4 md:px-6">
+          <div className="max-w-4xl mx-auto">
+            <Card className="p-12 bg-gradient-to-br from-gray-900 to-gray-800 text-white border-0">
+              <div className="text-center">
+                <h2 className="text-3xl sm:text-4xl font-bold mb-4">
+                  Get Your Custom Quote
+                </h2>
+                <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+                  Every clinic is unique. Let us create a pricing plan that perfectly fits your needs and budget.
+                </p>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10 text-left">
+                  {[
+                    "Transparent pricing with no hidden fees",
+                    "Flexible monthly or annual billing",
+                    "Scale your plan as you grow",
+                    "Free implementation and training"
+                  ].map((item, i) => (
+                    <div key={i} className="flex items-start gap-3">
+                      <Check className="h-5 w-5 text-green-400 mt-0.5 flex-shrink-0" />
+                      <span className="text-gray-200">{item}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <Link to="/contact">
+                    <Button size="lg" className="h-14 px-8 text-lg font-semibold bg-white text-black hover:bg-gray-100 group">
+                      Get Custom Pricing
+                      <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+                    </Button>
+                  </Link>
+                  <a href="https://tvccms.vercel.app/login" target="_blank" rel="noopener noreferrer">
+                    <Button size="lg" className="h-14 px-8 text-lg font-semibold bg-transparent border-2 border-white text-white hover:bg-white hover:text-black transition-colors">
+                      Book a Demo
+                    </Button>
+                  </a>
+                </div>
+              </div>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="py-20 bg-gray-50">
+        <div className="container px-4 md:px-6">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl sm:text-4xl font-bold mb-4">
+                What Our Customers Say
+              </h2>
+              <p className="text-xl text-gray-600">
+                About our pricing model
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {[
+                {
+                  quote: "The custom pricing saved us from paying for features we never would have used. We got exactly what we needed at a fair price.",
+                  author: "Dr. Sarah Johnson",
+                  position: "Family Practice"
+                },
+                {
+                  quote: "Their consultative approach to pricing was refreshing. They actually took the time to understand our needs first.",
+                  author: "Dr. Michael Chen",
+                  position: "Multi-Specialty Clinic"
+                },
+                {
+                  quote: "As we grew, ClinicFlow scaled with us. The flexible pricing let us add features incrementally without breaking our budget.",
+                  author: "Dr. Priya Sharma",
+                  position: "Dental Practice"
+                }
+              ].map((testimonial, index) => (
+                <Card key={index} className="p-6 bg-white border-gray-200 hover:shadow-lg transition-shadow">
+                  <div className="flex gap-1 mb-4">
+                    {[...Array(5)].map((_, i) => (
+                      <svg key={i} className="h-5 w-5 fill-black" viewBox="0 0 20 20">
+                        <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                      </svg>
+                    ))}
+                  </div>
+                  <p className="text-gray-600 italic mb-6">"{testimonial.quote}"</p>
+                  <div className="pt-4 border-t border-gray-100">
+                    <p className="font-bold text-black">{testimonial.author}</p>
+                    <p className="text-sm text-gray-600">{testimonial.position}</p>
+                  </div>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };
 
-export default Pricing; 
+export default Pricing;

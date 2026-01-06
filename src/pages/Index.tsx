@@ -414,22 +414,22 @@ const Index = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
               {[
                 {
-                  quote: "ClinicFlow has saved us over 10 hours per week on administrative tasks. The automated appointment reminders alone have reduced no-shows by 60%.",
-                  name: "Dr. Sarah Johnson",
+                  quote: "ClinicFlow has transformed how we manage our practice. The automated reminders have reduced no-shows by 60%, and billing is now seamless. Highly recommend for any clinic in India!",
+                  name: "Dr. Rajesh Malhotra",
                   role: "Clinic Owner",
-                  specialty: "Family Practice"
+                  specialty: "Mumbai, Maharashtra"
                 },
                 {
-                  quote: "The inventory management feature has been a game-changer. We've reduced waste by 30% and never run out of critical supplies anymore.",
-                  name: "Dr. Michael Chen",
-                  role: "Practice Manager",
-                  specialty: "Multi-Specialty Clinic"
-                },
-                {
-                  quote: "The analytics dashboard gives me real-time insights into our practice performance. I can make data-driven decisions that have increased our revenue by 25%.",
-                  name: "Dr. Priya Sharma",
+                  quote: "The inventory management is brilliant. We've reduced medicine waste by 30% and never face stock-outs. Perfect solution for multi-specialty clinics like ours.",
+                  name: "Dr. Kavita Reddy",
                   role: "Medical Director",
-                  specialty: "Dental Practice"
+                  specialty: "Bangalore, Karnataka"
+                },
+                {
+                  quote: "The GST-compliant billing and real-time analytics have been game-changers. Our revenue increased by 25% in just 3 months. Best investment we made!",
+                  name: "Dr. Amit Patel",
+                  role: "Practice Owner",
+                  specialty: "Ahmedabad, Gujarat"
                 }
               ].map((testimonial, index) => (
                 <Card key={index} className="p-6 bg-white border-gray-200 hover:shadow-lg transition-shadow">
